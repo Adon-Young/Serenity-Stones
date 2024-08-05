@@ -75,10 +75,10 @@ public class Movement : MonoBehaviour
 
     void HandleRotation()
     {
-        if (Input.GetKey(KeyCode.W)) RotateStone(Vector3.right, -keyRotationAmount);
-        if (Input.GetKey(KeyCode.S)) RotateStone(Vector3.right, keyRotationAmount);
-        if (Input.GetKey(KeyCode.A)) RotateStone(Vector3.up, -keyRotationAmount);
-        if (Input.GetKey(KeyCode.D)) RotateStone(Vector3.up, keyRotationAmount);
+        if (Input.GetKey(KeyCode.W)) RotateStone(Vector3.right, keyRotationAmount);
+        if (Input.GetKey(KeyCode.S)) RotateStone(Vector3.right, -keyRotationAmount);
+        if (Input.GetKey(KeyCode.A)) RotateStone(Vector3.up, keyRotationAmount);
+        if (Input.GetKey(KeyCode.D)) RotateStone(Vector3.up, -keyRotationAmount);
     }
 
     void TrySelectStone()
@@ -99,6 +99,12 @@ public class Movement : MonoBehaviour
                 {
                     renderer.material.color = pickedUpColor; // Change color to red
                     rb.isKinematic = true;
+
+                    //resetting the position to 0 on the z axis when picked up
+                    Vector3 position = selectedStone.transform.position;
+                    position.z = 0f;
+                    selectedStone.transform.position = position;
+
                 }
                 else
                 {

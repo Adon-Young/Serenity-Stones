@@ -26,7 +26,8 @@ public class StoneCreation : MonoBehaviour
     private float stoneScaleX = 1;
     private float stoneScaleY = 1;
     private float stoneScaleZ = 1;
-
+    private float minimumScale = 0.1f;
+    private float maximumScale = 1.5f;
 
     public GameObject[] StartingPositions;
 
@@ -162,7 +163,10 @@ public class StoneCreation : MonoBehaviour
 
             // Instantiate a new stone from the chosen prefab
             GameObject stone = Instantiate(chosenPrefab, StartingPositions[i].transform.position, Quaternion.identity);
-            stone.transform.localScale = new Vector3(1, 1, 1);
+
+            //all x y and z scale for the stones should be the same random value
+            float randomScaleAllAxis = Random.Range(minimumScale, maximumScale);
+            stone.transform.localScale = new Vector3(randomScaleAllAxis, randomScaleAllAxis, randomScaleAllAxis);
 
             // Add the stone to the list
             stones.Add(stone);

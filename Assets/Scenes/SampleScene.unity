@@ -250,7 +250,6 @@ MonoBehaviour:
   stonePrefabs:
   - {fileID: 8988528847353366020, guid: a26199bb1118c94469ca810556784a33, type: 3}
   - {fileID: 8137503028193387326, guid: ad0dfb42384f38c44bab92dac63348cc, type: 3}
-  - {fileID: 5289595485959760007, guid: f3e561e572bc77f41be95befad05f9d9, type: 3}
   numberOfStonesInList: 5
   stones: []
   stoneCurrentTransform: {fileID: 0}
