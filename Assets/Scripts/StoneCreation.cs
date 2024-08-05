@@ -12,7 +12,6 @@ public class StoneCreation : MonoBehaviour
 {
     // Array of stone prefabs to choose from
     public GameObject[] stonePrefabs;
-    public GameObject stoneTextObjPref;
     // Default number of stones in the list
     public int numberOfStonesInList = 3;
     public List<GameObject> stones = new List<GameObject>();
@@ -27,6 +26,11 @@ public class StoneCreation : MonoBehaviour
     private float stoneScaleX = 1;
     private float stoneScaleY = 1;
     private float stoneScaleZ = 1;
+
+
+    public GameObject[] StartingPositions;
+
+
     //-----------------------------
 
     // Physics related component variables
@@ -148,17 +152,22 @@ public class StoneCreation : MonoBehaviour
 
     void CreateStones(int numberOfStones)
     {
-        for (int i = 0; i < numberOfStones; i++)
+        // Ensure there are enough starting positions for the number of stones
+        int maxPositions = Mathf.Min(numberOfStones, StartingPositions.Length);
+
+        for (int i = 0; i < maxPositions; i++)
         {
             // Randomly choose a prefab from the array
             GameObject chosenPrefab = stonePrefabs[Random.Range(0, stonePrefabs.Length)];
 
             // Instantiate a new stone from the chosen prefab
-            GameObject stone = Instantiate(chosenPrefab, GetRandomPosition(), Quaternion.identity);
+            GameObject stone = Instantiate(chosenPrefab, StartingPositions[i].transform.position, Quaternion.identity);
             stone.transform.localScale = new Vector3(1, 1, 1);
 
             // Add the stone to the list
             stones.Add(stone);
+
+          
 
             // Find the Canvas component within the instantiated stone
             Transform canvasTransform = FindCanvasTransform(stone);
@@ -213,14 +222,7 @@ public class StoneCreation : MonoBehaviour
 
         return null;
     }
-    Vector3 GetRandomPosition()
-    {
-        // Generate random positions within a certain range
-        float x = -4f;
-        float y = Random.Range(0f, 5f);
-        float z = 0f;
-        return new Vector3(x, y, z);
-    }
+
 
 
 
