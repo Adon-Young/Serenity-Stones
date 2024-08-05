@@ -216,9 +216,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23615e43fa6eb884fb43947698af6a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultColor: {r: 1, g: 1, b: 1, a: 1}
-  pickedUpColor: {r: 0.49056602, g: 0, b: 0, a: 1}
-  editableColor: {r: 0, g: 0.5283019, b: 0, a: 1}
+  defaultColor: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
+  pickedUpColor: {r: 0.22490211, g: 0.23631485, b: 0.3584906, a: 1}
+  editableColor: {r: 0.20392157, g: 0.3764706, b: 0.20751415, a: 1}
   keyRotationAmount: 1
 --- !u!4 &658821832
 Transform:
@@ -248,7 +248,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stonePrefabs:
-  - {fileID: 8988528847353366020, guid: a26199bb1118c94469ca810556784a33, type: 3}
   - {fileID: 8137503028193387326, guid: ad0dfb42384f38c44bab92dac63348cc, type: 3}
   numberOfStonesInList: 5
   stones: []

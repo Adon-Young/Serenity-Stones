@@ -22,12 +22,11 @@ public class StoneCreation : MonoBehaviour
     public float Xrotation = 1;
     public float Yrotation = 1;
     public float rotationSpeed = 1;
-    private float stoneWeight = 1;
-    private float stoneScaleX = 1;
-    private float stoneScaleY = 1;
-    private float stoneScaleZ = 1;
-    private float minimumScale = 0.1f;
+    private float minimumScale = 0.5f;
     private float maximumScale = 1.5f;
+    private float stoneMass = 10;
+    
+
 
     public GameObject[] StartingPositions;
 
@@ -139,7 +138,7 @@ public class StoneCreation : MonoBehaviour
     {
         // Define the desired offset in front of the stone
         Vector3 offset = new Vector3(0, 0, 1); // Adjust as needed to control how far in front of the stone the canvas should be
-
+        
         // Calculate the canvas position based on the stone's position and the camera's position
         Vector3 directionToCamera = (mainGameCamera.transform.position - stoneTransform.position).normalized;
         Vector3 newCanvasPosition = stoneTransform.position + directionToCamera * offset.z;
@@ -167,6 +166,16 @@ public class StoneCreation : MonoBehaviour
             //all x y and z scale for the stones should be the same random value
             float randomScaleAllAxis = Random.Range(minimumScale, maximumScale);
             stone.transform.localScale = new Vector3(randomScaleAllAxis, randomScaleAllAxis, randomScaleAllAxis);
+            stone.GetComponent<Rigidbody>().mass = stoneMass;
+           
+            foreach (Transform child in stone.transform)
+            {
+                child.localScale = new Vector3(
+                    0.01f / randomScaleAllAxis,
+                    0.01f / randomScaleAllAxis,
+                    0.01f / randomScaleAllAxis
+                );
+            }
 
             // Add the stone to the list
             stones.Add(stone);
