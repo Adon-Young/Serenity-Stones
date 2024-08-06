@@ -13,7 +13,7 @@ public class StoneCreation : MonoBehaviour
     // Array of stone prefabs to choose from
     public GameObject[] stonePrefabs;
     // Default number of stones in the list
-    public int numberOfStonesInList = 3;
+    private int numberOfStonesInList = 5;
     public List<GameObject> stones = new List<GameObject>();
 
     // Transform variables
@@ -25,7 +25,8 @@ public class StoneCreation : MonoBehaviour
     private float minimumScale = 0.5f;
     private float maximumScale = 1.5f;
     private float stoneMass = 10;
-    
+    public Color initialColor = new Color(0.3396226f, 0.3396226f, 0.3396226f);
+
 
 
     public GameObject[] StartingPositions;
@@ -150,7 +151,7 @@ public class StoneCreation : MonoBehaviour
         FaceTheCamera(canvasTransform);
     }
 
-    void CreateStones(int numberOfStones)
+    public void CreateStones(int numberOfStones)
     {
         // Ensure there are enough starting positions for the number of stones
         int maxPositions = Mathf.Min(numberOfStones, StartingPositions.Length);
@@ -162,6 +163,9 @@ public class StoneCreation : MonoBehaviour
 
             // Instantiate a new stone from the chosen prefab
             GameObject stone = Instantiate(chosenPrefab, StartingPositions[i].transform.position, Quaternion.identity);
+
+            stone.tag = "Stone";
+            SetStoneColor(stone, initialColor);
 
             //all x y and z scale for the stones should be the same random value
             float randomScaleAllAxis = Random.Range(minimumScale, maximumScale);
@@ -199,9 +203,76 @@ public class StoneCreation : MonoBehaviour
             CreateStoneText(stone);
         }
     }
+    private void SetStoneColor(GameObject stone, Color color)
+    {
+        MeshRenderer meshRenderer = stone.GetComponent<MeshRenderer>();
+        if (meshRenderer != null)
+        {
+            meshRenderer.material.color = color;
+        }
+        else
+        {
+            Debug.LogWarning("No MeshRenderer found on the stone.");
+        }
+    }
+    public void ResetStone(GameObject stone)
+    {
+        if (stone == null) return;
+
+        // Find the index of the stone in the list
+        int index = stones.IndexOf(stone);
+        if (index < 0 || index >= StartingPositions.Length)
+        {
+            Debug.LogError("Stone index out of bounds.");
+            return;
+        }
+
+        // Get the starting position GameObject
+        GameObject startPositionObject = StartingPositions[index];
+        if (startPositionObject == null)
+        {
+            Debug.LogError("Starting position GameObject is null.");
+            return;
+        }
+
+        // Get the Transform component of the starting position GameObject
+        Transform startPosition = startPositionObject.transform;
+
+        // Reset stone properties
+        stone.transform.position = startPosition.position;
+        stone.transform.rotation = startPosition.rotation;
+
+        float randomScaleAllAxis = Random.Range(minimumScale, maximumScale);
+        stone.transform.localScale = new Vector3(randomScaleAllAxis, randomScaleAllAxis, randomScaleAllAxis);
+        stone.GetComponent<Rigidbody>().mass = stoneMass;
+
+        foreach (Transform child in stone.transform)
+        {
+            child.localScale = new Vector3(
+                0.01f / randomScaleAllAxis,
+                0.01f / randomScaleAllAxis,
+                0.01f / randomScaleAllAxis
+            );
+        }
+
+        Rigidbody rb = stone.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.isKinematic = true; // Set Rigidbody to kinematic
+            rb.velocity = Vector3.zero; // Reset velocity
+            rb.angularVelocity = Vector3.zero; // Reset angular velocity
+        }
+
+        stone.tag = "Stone";
+    }
+
+
+
 
     Transform FindCanvasTransform(GameObject stone)
     {
+        if (stone == null) return null; // Check if the stone is null
+
         // Search for the Canvas within the stone hierarchy
         Transform canvasTransform = stone.transform.Find("StoneCanvas");
 
@@ -275,8 +346,6 @@ public class StoneCreation : MonoBehaviour
                 string randomWord = GetRandomWord();
                 placeholderText.text = randomWord;
 
-                // Log the assigned text for debugging purposes
-                Debug.Log($"Assigned placeholder text '{randomWord}' to the existing TextObject on the stone.");
             }
             else
             {
