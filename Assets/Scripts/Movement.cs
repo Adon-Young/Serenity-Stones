@@ -7,7 +7,7 @@ public class Movement : MonoBehaviour
     private GameObject selectedStone;
     private TMP_InputField activeInputField;
     private bool isDragging = false;
-
+ 
     private enum StoneState
     {
         Moveability,
@@ -33,7 +33,11 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        HandleInput();
+        if(LevelController.freezeGamePlay == false)//if the game sint frozen then you can pick up rotate and place stones/ edit their text...
+        {
+            HandleInput();
+        }
+       
     }
 
     void HandleInput()
