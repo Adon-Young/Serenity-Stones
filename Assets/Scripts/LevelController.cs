@@ -14,7 +14,7 @@ public class LevelController : MonoBehaviour
     // HowToPlayWalkthrough will hold all the screens for the how to play information
     public GameObject HowToPlayWalkThrough;
     public GameObject[] howToPlayScreens;
-    private int currnetScreenIndex = 0;
+    private int currentScreenIndex = 0; // Fixed typo
 
     // Buttons for navigation
     public Button nextButton;
@@ -38,7 +38,20 @@ public class LevelController : MonoBehaviour
 
     private void Start()
     {
-        HowToPlayWalkThrough.SetActive(true); // This is the how to play overlay screen
+        // Check if the player has already seen the HowToPlay walkthrough
+        if (PlayerPrefs.GetInt("HasSeenHowToPlayInfo", 0) == 0)
+        {
+            ShowTutorialUI();
+            // Set the flag so we don't show it again
+            PlayerPrefs.SetInt("HasSeenHowToPlayInfo", 1);
+            PlayerPrefs.Save(); // Save the changes
+        }
+        else
+        {
+            // If already seen, hide the HowToPlayWalkThrough
+            HowToPlayWalkThrough.SetActive(false);
+            freezeGamePlay = false;
+        }
 
         // Initialize button states
         UpdateButtonStates();
@@ -63,9 +76,9 @@ public class LevelController : MonoBehaviour
     public void NextButton()
     {
         // Move to the next screen if not at the end of the list
-        if (currnetScreenIndex < howToPlayScreens.Length - 1)
+        if (currentScreenIndex < howToPlayScreens.Length - 1)
         {
-            currnetScreenIndex++;
+            currentScreenIndex++;
             UpdateScreen();
         }
     }
@@ -73,9 +86,9 @@ public class LevelController : MonoBehaviour
     public void PreviousButton()
     {
         // Move to the previous screen if not at the start of the list
-        if (currnetScreenIndex > 0)
+        if (currentScreenIndex > 0)
         {
-            currnetScreenIndex--;
+            currentScreenIndex--;
             UpdateScreen();
         }
     }
@@ -90,7 +103,7 @@ public class LevelController : MonoBehaviour
         // Show the current screen
         if (howToPlayScreens.Length > 0)
         {
-            howToPlayScreens[currnetScreenIndex].SetActive(true);
+            howToPlayScreens[currentScreenIndex].SetActive(true);
         }
 
         // Update button states based on the current index
@@ -102,10 +115,10 @@ public class LevelController : MonoBehaviour
         if (howToPlayScreens.Length > 0)
         {
             // Disable the "Previous" button on the first screen
-            previousButton.interactable = currnetScreenIndex > 0;
+            previousButton.interactable = currentScreenIndex > 0;
 
             // Disable the "Next" button and show the "Start Game" button on the last screen
-            if (currnetScreenIndex == howToPlayScreens.Length - 1)
+            if (currentScreenIndex == howToPlayScreens.Length - 1)
             {
                 nextButton.interactable = false;
                 startGameButton.gameObject.SetActive(true); // Show Start Game button
@@ -125,5 +138,11 @@ public class LevelController : MonoBehaviour
 
         // Disable the HowToPlayWalkThrough and all its children
         HowToPlayWalkThrough.gameObject.SetActive(false);
+    }
+
+    private void ShowTutorialUI()
+    {
+        HowToPlayWalkThrough.SetActive(true);
+        UpdateScreen(); // Initialize the screen update
     }
 }
