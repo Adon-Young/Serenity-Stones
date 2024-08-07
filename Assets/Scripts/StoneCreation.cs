@@ -22,7 +22,7 @@ public class StoneCreation : MonoBehaviour
     public float Xrotation = 1;
     public float Yrotation = 1;
     public float rotationSpeed = 1;
-    private float minimumScale = 0.5f;
+    private float minimumScale = 0.2f;
     private float maximumScale = 1f;
     private float stoneMass = 10;
     public Color initialColor = new Color(0.3396226f, 0.3396226f, 0.3396226f);
