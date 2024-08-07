@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour
     public GameObject startScreen;
     public GameObject howToPlayScreen;
     public GameObject themeScreen;
+    public GameObject scenarioScreen;
 
     // Method called at the start of the game
     void Start()
@@ -24,6 +25,12 @@ public class MenuManager : MonoBehaviour
         HideAllScreens();
         // Then activate the start screen
         startScreen.SetActive(true);
+    }
+    public void ShowScenarioScreen()
+    {
+        HideAllScreens();
+
+        scenarioScreen.SetActive(true);
     }
 
     // Method to show the "How To Play" screen
@@ -53,10 +60,16 @@ public class MenuManager : MonoBehaviour
         howToPlayScreen.SetActive(false);
         // Deactivate the "Theme" screen
         themeScreen.SetActive(false);
+        scenarioScreen.SetActive(false);
     }
 
     // Method to load the main game scene
-    public void LoadMainGameScene()
+    public void LoadScenario1Scene()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+
+    public void LoadScenario2Scene()
     {
         SceneManager.LoadScene("SampleScene");
     }

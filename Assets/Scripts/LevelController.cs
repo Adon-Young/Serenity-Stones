@@ -32,7 +32,7 @@ public class LevelController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        scenario1chosen = true;
+       
         freezeGamePlay = true;
     }
 

@@ -6,7 +6,7 @@ public class ScenarioSelection : MonoBehaviour
 {
     public Button scenario1Button;
     public Button scenario2Button;
-    public LevelController levelController;
+    private static LevelController levelController;
     private void Start()
     {
         // Add listeners to buttons
@@ -19,13 +19,16 @@ public class ScenarioSelection : MonoBehaviour
     //if we want more level then we will use intigers in an array or list with a switch case
     private void OnScenario1Selected()
     {
+        
+        SceneManager.LoadScene("SampleScene"); // Load the game scene
         levelController.scenario1chosen = true;
-        SceneManager.LoadScene("GameScene"); // Load the game scene
+
     }
 
     private void OnScenario2Selected()
     {
+        
+        SceneManager.LoadScene("SampleScene"); // Load the game scene
         levelController.scenario1chosen = false;
-        SceneManager.LoadScene("GameScene"); // Load the game scene
     }
 }
