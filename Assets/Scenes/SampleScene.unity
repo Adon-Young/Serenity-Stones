@@ -711,8 +711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stonePrefabs:
-  - {fileID: 9048934356714544631, guid: 646d85b42420f7744b6a6234fef7cfe9, type: 3}
-  - {fileID: 5387892936611694365, guid: bda94c5a01ebbd546915163aa37e9bda, type: 3}
+  - {fileID: 1701727744411873150, guid: 56a0cef9db2dd1546a876cb3f3c312f1, type: 3}
   stones: []
   stoneCurrentTransform: {fileID: 0}
   stoneResetTransform: {fileID: 0}
