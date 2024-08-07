@@ -4,8 +4,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using UnityEditor.SceneManagement;
-using static UnityEditor.PlayerSettings;
+
+
 using static UnityEngine.Mesh;
 
 public class StoneCreation : MonoBehaviour
