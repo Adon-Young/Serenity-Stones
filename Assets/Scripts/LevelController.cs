@@ -132,7 +132,7 @@ public class LevelController : MonoBehaviour
     }
 
     // Attached to start button to unfreeze the gameplay
-    public void UnfreezeLevel()
+    public void Play()
     {
         freezeGamePlay = false;
 

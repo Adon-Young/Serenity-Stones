@@ -387,7 +387,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 658821834}
         m_TargetAssemblyTypeName: LevelController, Assembly-CSharp
         m_MethodName: NextButton
         m_Mode: 1
@@ -519,7 +519,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 658821834}
         m_TargetAssemblyTypeName: LevelController, Assembly-CSharp
         m_MethodName: PreviousButton
         m_Mode: 1
@@ -651,9 +651,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 658821834}
         m_TargetAssemblyTypeName: LevelController, Assembly-CSharp
-        m_MethodName: UnfreezeLevel
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

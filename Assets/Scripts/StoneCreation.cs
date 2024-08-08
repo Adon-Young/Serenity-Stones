@@ -138,7 +138,7 @@ public class StoneCreation : MonoBehaviour
     void UpdateCanvasPositionAndRotation(Transform canvasTransform, Transform stoneTransform)
     {
         // Define the desired offset in front of the stone
-        Vector3 offset = new Vector3(0, 0, 1); // Adjust as needed to control how far in front of the stone the canvas should be
+        Vector3 offset = new Vector3(0, 0, 1.5f); // Adjust as needed to control how far in front of the stone the canvas should be
         
         // Calculate the canvas position based on the stone's position and the camera's position
         Vector3 directionToCamera = (mainGameCamera.transform.position - stoneTransform.position).normalized;
