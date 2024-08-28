@@ -127,7 +127,6 @@
     <None Include="Assets\Downloaded Assets\Polytope Studio\Lowpoly_Village\Sources\Shaders\PT_Buildings_Shader_PBR.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\Downloaded Assets\LowPolyWater_Pack\Shaders\WaterShaded.shader" />
-    <None Include="Assets\Scripts\Example Scripts\Narratives.txt" />
     <None Include="Assets\Downloaded Assets\Polytope Studio\Lowpoly_Environments\Sources\Shaders\PT_Vegetation_Opaque_Shader.shader" />
     <None Include="Assets\Downloaded Assets\Polytope Studio\Lowpoly_Environments\Sources\Shaders\PT_Vegetation_Foliage_Shader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
