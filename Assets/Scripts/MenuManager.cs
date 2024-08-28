@@ -63,14 +63,5 @@ public class MenuManager : MonoBehaviour
         scenarioScreen.SetActive(false);
     }
 
-    // Method to load the main game scene
-    public void LoadScenario1Scene()
-    {
-        SceneManager.LoadScene("SampleScene");
-    }
 
-    public void LoadScenario2Scene()
-    {
-        SceneManager.LoadScene("SampleScene");
-    }
 }

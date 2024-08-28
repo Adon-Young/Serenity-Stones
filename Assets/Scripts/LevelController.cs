@@ -6,7 +6,7 @@ public class LevelController : MonoBehaviour
 {
     public static LevelController Instance;
 
-    public bool scenario1chosen; // Determines which scenario to show
+    public static bool scenario1chosen; // Determines which scenario to show
     public GameObject scenario1Screen; // UI for Scenario 1
     public GameObject scenario2Screen; // UI for Scenario 2
     public static bool freezeGamePlay; // Controls whether gameplay is frozen

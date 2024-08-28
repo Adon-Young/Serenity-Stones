@@ -243,7 +243,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 22957612}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 423712654}
+        m_TargetAssemblyTypeName: ScenarioSelection, Assembly-CSharp
+        m_MethodName: OnScenario1Selected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &142240178
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,6 +916,7 @@ GameObject:
   - component: {fileID: 423712653}
   - component: {fileID: 423712652}
   - component: {fileID: 423712654}
+  - component: {fileID: 423712655}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -954,8 +967,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da2be6df14764fd4fac25f771f76cbff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scenario1Button: {fileID: 22957614}
-  scenario2Button: {fileID: 1638853842}
+--- !u!114 &423712655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423712651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91b051cee39da2244bd0528987f99e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &548521145
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,7 +1328,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 701407983}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 423712655}
+        m_TargetAssemblyTypeName: ThemeSelection, Assembly-CSharp
+        m_MethodName: OnButtonSelected
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &701407983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2013,7 +2048,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 838281603}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 423712655}
+        m_TargetAssemblyTypeName: ThemeSelection, Assembly-CSharp
+        m_MethodName: OnButtonSelected
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &838281603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3333,7 +3380,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1273528909}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 423712655}
+        m_TargetAssemblyTypeName: ThemeSelection, Assembly-CSharp
+        m_MethodName: OnButtonSelected
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1273528909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4182,7 +4241,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1638853843}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 423712654}
+        m_TargetAssemblyTypeName: ScenarioSelection, Assembly-CSharp
+        m_MethodName: OnScenario2Selected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1638853843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4416,7 +4487,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1700266660}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 423712655}
+        m_TargetAssemblyTypeName: ThemeSelection, Assembly-CSharp
+        m_MethodName: OnButtonSelected
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1700266660
 MonoBehaviour:
   m_ObjectHideFlags: 0
