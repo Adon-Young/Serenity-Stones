@@ -99,6 +99,7 @@
     <Compile Include="Assets\Downloaded Assets\Polytope Studio\Lowpoly_Demos\Environment_Free\Helpers\MouseLook.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\Scripts\Example Scripts\ScrollingBackground.cs" />
+    <Compile Include="Assets\Scripts\PopUpInfo.cs" />
     <Compile Include="Assets\Downloaded Assets\IL3DN\Scripts\IL3DN_SimpleFPSController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
