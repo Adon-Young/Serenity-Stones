@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class ThemeSelection : MonoBehaviour
 {
     // Static variable to store the selected button index
-    public static int selectedButtonIndex = -1;
+    public static int selectedButtonIndex = 0;
 
     // Button click handler
     public void OnButtonSelected(int index)
