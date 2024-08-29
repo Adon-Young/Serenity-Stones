@@ -53,64 +53,58 @@ public class StoneCreation : MonoBehaviour
     // Variables for text object on the stone
     public TMP_InputField stoneTextBox;
     public GameObject mainGameCamera;
-    private List<string> words = new List<string>
+    private List<string> S1words = new List<string>
     {
         // List of default Words on the stones
 
-        "AWARENESS",
-        "BALANCE",
-        "CALM",
-        "DETOX",
-        "ENERGY",
-        "FULFILLMENT",
-        "GRATITUDE",
-        "HARMONY",
-        "INSIGHT",
-        "JOY",
-        "KINDNESS",
-        "LOVE",
-        "MINDFULNESS",
-        "NURTURE",
-        "OPTIMISM",
-        "PEACE",
-        "QUALITY",
-        "RELAXATION",
-        "SERENITY",
-        "TRANQUILITY",
-        "UNDERSTANDING",
-        "VITALITY",
-        "WELLNESS",
-        "XENIAL",
-        "YOGA",
-        "ZEN",
-
-        "ACCOMPLISHMENT",
-        "BELONGING",
-        "COMPASSION",
-        "DEDICATION",
-        "EMPATHY",
-        "FAMILY",
-        "GENEROSITY",
-        "HOPE",
-        "INTEGRITY",
-        "JUSTICE",
-        "KNOWLEDGE",
-        "LEADERSHIP",
-        "MENTORSHIP",
-        "NETWORKING",
-        "OPPORTUNITY",
-        "PURPOSE",
-        "QUESTIONING",
-        "RESPECT",
-        "SUPPORT",
-        "TRUST",
-        "UNITY",
-        "VALUES",
-        "WISDOM",
-        "XENODOCHIAL",
-        "YIELD",
-        "ZEAL"
+    "Balanced Meals",
+    "Morning Stretch",
+    "Mindful Eating",
+    "Early to Bed",
+    "Intermittent Fasting",
+    "Lean Proteins",
+    "Dark Chocolate",
+    "Breathing Exercises",
+    "Daily Steps",
+    "Whole Foods",
+    "Herbal Teas",
+    "Natural Sweeteners",
+    "Water Intake",
+    "Fiber-Rich Foods",
+    "Mental Clarity",
+    "Consistent Routine",
+    "Balanced Snacks",
+    "Probiotics",
+    "Outdoor Activity",
+    "Limit Processed Foods"
     };
+
+    private List<string> S2words = new List<string>
+    {
+        // List of default Words on the stones
+    "Set Boundaries",
+    "Delegate Tasks",
+    "Personal Growth",
+    "Unplug from Work",
+    "Mindfulness Practice",
+    "Quality Time",
+    "Power Naps",
+    "Team Building",
+    "Networking Events",
+    "Plan Leisure Time",
+    "Cultural Activities",
+    "Fitness Routine",
+    "Creative Pursuits",
+    "Flexible Schedule",
+    "Weekend Getaways",
+    "Lunch Breaks",
+    "Disconnect to Reconnect",
+    "Family Dinners",
+    "Volunteering",
+    "Morning Rituals"
+    };
+
+
     //--------------------------------------------
 
     void Start()
@@ -373,8 +367,20 @@ public class StoneCreation : MonoBehaviour
 
     string GetRandomWord()
     {
-        int randomIndex = Random.Range(0, words.Count);
-        return words[randomIndex];
+
+        if(LevelController.scenario1chosen)
+        {
+            int randomIndex = Random.Range(0, S1words.Count);
+            return S1words[randomIndex];
+        }
+
+        else
+        {
+
+            int randomIndex = Random.Range(0, S2words.Count);
+            return S2words[randomIndex];
+        }
+
     }
 
     public TMP_InputField GetInputFieldFromStone(GameObject stone)
