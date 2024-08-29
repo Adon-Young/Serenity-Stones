@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.679325, g: 0.7328694, b: 0.80467784, a: 1}
+  m_IndirectSpecularColor: {r: 0.6793234, g: 0.7328701, b: 0.80467707, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -746,7 +746,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -52.799988, y: -44.49997}
+  m_AnchoredPosition: {x: -52.80005, y: -44.5}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &178239152
@@ -1265,7 +1265,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &367229886
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2518,11 +2518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stonePrefabs:
-  - {fileID: 8152574467270784661, guid: a58af93bf60bed2439b90912219cee95, type: 3}
-  - {fileID: 3587659101357602077, guid: 59f052c29823343428561052bed7dec2, type: 3}
-  - {fileID: 8207435437278514544, guid: 9e82023bd2426f94db7bcf6591148638, type: 3}
-  - {fileID: 1132163295763236867, guid: c05e3a0986d7d604499c55e9067c7a1d, type: 3}
-  - {fileID: 2943598684285447775, guid: b39d516b211ddf247a5b7c2728dfc125, type: 3}
+  - {fileID: 6897441043200461818, guid: 6831b5fdaf2281b4ea3435c48a62103c, type: 3}
   stones: []
   stoneCurrentTransform: {fileID: 0}
   stoneResetTransform: {fileID: 0}
@@ -2782,7 +2778,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &758328001
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4997,7 +4993,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1424234954
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5949,7 +5945,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1705217382
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7005,7 +7001,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -52.8, y: -44.5}
+  m_AnchoredPosition: {x: -52.80005, y: -44.5}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2041617274
