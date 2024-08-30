@@ -133,6 +133,7 @@
     <None Include="Assets\Downloaded Assets\Lava_Flowing_Shader\ReadMe.txt" />
     <None Include="Assets\Downloaded Assets\LowPolyWater_Pack\Shaders\WaterShaded.shader" />
     <None Include="Assets\Downloaded Assets\Laterns and candles\Shaders\GlassStainedBumpDistort.shader" />
+    <None Include="Assets\Downloaded Assets\Snowconesolid Assets\Super Beach Pack\Snowconesolid Assets ReadMe.txt" />
     <None Include="Assets\Downloaded Assets\Polytope Studio\Lowpoly_Environments\Sources\Shaders\PT_Vegetation_Opaque_Shader.shader" />
     <None Include="Assets\Downloaded Assets\Polytope Studio\Lowpoly_Environments\Sources\Shaders\PT_Vegetation_Foliage_Shader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
@@ -149,6 +150,7 @@
     <None Include="Assets\Downloaded Assets\Polytope Studio\Lowpoly_Environments\Sources\Shaders\PT_Vegetation_Flowers_Shader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Downloaded Assets\Lava_Flowing_Shader\Shaders\Unlit_Lava_Distort.shader" />
+    <None Include="Assets\Downloaded Assets\Snowconesolid Assets\Super Beach Pack\Super Beach Ball Pack\Snowconesolid Assets ReadMe.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Downloaded Assets\IL3DN\Shaders\IL3DN_Grass.shader" />
     <None Include="Assets\Downloaded Assets\IL3DN\Shaders\IL3DN_OpaqueSurface.shader" />
