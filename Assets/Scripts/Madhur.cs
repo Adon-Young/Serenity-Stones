@@ -13,6 +13,7 @@ public class RandomUIDisplay : MonoBehaviour
     public List<GameObject> Scenario1UI;
     public List<GameObject> Scenario2UI;
 
+    public GameObject backgroundBubble;
     public GameObject S1UIholder;
     public GameObject S2UIholder;
 
@@ -47,6 +48,8 @@ public class RandomUIDisplay : MonoBehaviour
 
     void InitializeUI()
     {
+
+        backgroundBubble.SetActive(false);
         // Set both UI holders to inactive at the start
         S1UIholder.SetActive(false);
         S2UIholder.SetActive(false);
@@ -108,6 +111,7 @@ public class RandomUIDisplay : MonoBehaviour
             // Show the speaking image and hide the quiet image
             speakingImage.SetActive(true);
             quietImage.SetActive(false);
+            backgroundBubble.SetActive(true);
 
             // Display the UI element (speech bubble)
             uiElement.SetActive(true);
@@ -119,6 +123,7 @@ public class RandomUIDisplay : MonoBehaviour
             // Hide the speaking image and show the quiet image
             speakingImage.SetActive(false);
             quietImage.SetActive(true);
+            backgroundBubble.SetActive(false);
 
             // Wait for a random time between minWaitTime and maxWaitTime
             float waitTime = Random.Range(minWaitTime, maxWaitTime);

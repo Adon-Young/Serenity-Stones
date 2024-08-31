@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour
     public GameObject howToPlayScreen;
     public GameObject themeScreen;
     public GameObject scenarioScreen;
+    public GameObject creditsScreen;
 
     // Method called at the start of the game
     void Start()
@@ -51,6 +52,14 @@ public class MenuManager : MonoBehaviour
         themeScreen.SetActive(true);
     }
 
+    public void ShowCreditsScreen()
+    {
+        HideAllScreens();
+        creditsScreen.SetActive(true);  
+    }
+
+
+
     // Method to hide all screens
     private void HideAllScreens()
     {
@@ -61,6 +70,7 @@ public class MenuManager : MonoBehaviour
         // Deactivate the "Theme" screen
         themeScreen.SetActive(false);
         scenarioScreen.SetActive(false);
+        creditsScreen.SetActive(false);
     }
 
 

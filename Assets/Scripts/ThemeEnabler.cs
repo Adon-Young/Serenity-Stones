@@ -1,4 +1,7 @@
+using System;
+using System.Reflection;
 using UnityEngine;
+
 
 public class ThemeEnabler : MonoBehaviour
 {
@@ -9,6 +12,8 @@ public class ThemeEnabler : MonoBehaviour
     public GameObject content4;
 
     public Material[] skyboxes; // The array of skyboxes to choose from
+    public Material[] stoneMaterials;
+    public GameObject[] SpeechBubbleThemes;
 
     private void Start()
     {
@@ -30,18 +35,34 @@ public class ThemeEnabler : MonoBehaviour
             case 0:
                 content1.SetActive(true);
                 SetTheSkyBox(0); // Use the first skybox
+                SetStoneMaterial(0);
+                EnableSpeechBubbleTheme(0);
+
+
                 break;
             case 1:
                 content2.SetActive(true);
                 SetTheSkyBox(1); // Use the second skybox
+                SetStoneMaterial(1);
+                EnableSpeechBubbleTheme(1);
+
+
                 break;
             case 2:
                 content3.SetActive(true);
                 SetTheSkyBox(2); // Use the third skybox
+                SetStoneMaterial(2);
+                EnableSpeechBubbleTheme(2);
+
+
                 break;
             case 3:
                 content4.SetActive(true);
                 SetTheSkyBox(3); // Use the fourth skybox
+                SetStoneMaterial(3);
+                EnableSpeechBubbleTheme(3);
+
+
                 break;
             default:
                 Debug.LogError("Invalid button index selected. Index: " + ThemeSelection.selectedButtonIndex);
@@ -63,4 +84,37 @@ public class ThemeEnabler : MonoBehaviour
             Debug.LogError("Invalid skybox index: " + index);
         }
     }
+
+    private void SetStoneMaterial(int index)
+    {
+
+        if (index >= 0 && index < stoneMaterials.Length)
+        {
+            StoneCreation stoneCreation = FindObjectOfType<StoneCreation>();
+            if(stoneCreation != null)
+            {
+                stoneCreation.UpdateStoneMaterials(stoneMaterials[index]);
+            }
+            else
+            {
+                Debug.Log("stone creation script not found");
+            }
+        }
+
+    }
+
+
+    private void EnableSpeechBubbleTheme(int index)
+    {
+        if (SpeechBubbleThemes != null && index >= 0 && index < SpeechBubbleThemes.Length)
+        {
+            SpeechBubbleThemes[index].SetActive(true);
+        }
+        else
+        {
+            Debug.LogError("Invalid theme index or themeObjects array is not set up correctly.");
+        }
+    }
+
+
 }

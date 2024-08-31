@@ -409,5 +409,20 @@ public class StoneCreation : MonoBehaviour
     }
 
 
+    public void UpdateStoneMaterials(Material newMaterial)
+    {
+        foreach (GameObject stone in stones)
+        {
+            MeshRenderer meshRenderer = stone.GetComponent<MeshRenderer>();
+            if (meshRenderer != null)
+            {
+                meshRenderer.material = newMaterial;
+            }
+        }
+    }
+
+
+
+
 }
 
