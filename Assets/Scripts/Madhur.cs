@@ -39,13 +39,6 @@ public class RandomUIDisplay : MonoBehaviour
     }
 
 
-
-
-
-
-
-
-
     void InitializeUI()
     {
 

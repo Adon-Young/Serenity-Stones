@@ -16,7 +16,7 @@ public class Movement : MonoBehaviour
 
     private StoneState currentState = StoneState.Moveability;
 
-    public Color defaultColor = Color.white; // Default color when not picked up
+    private Color defaultColor; // Default color when not picked up
     public Color pickedUpColor = Color.red;  // Color when picked up and in Moveability state
     public Color editableColor = Color.green; // Color when picked up and in Text state
 
@@ -101,6 +101,7 @@ public class Movement : MonoBehaviour
                 MeshRenderer renderer = selectedStone.GetComponent<MeshRenderer>();
                 if (renderer != null)
                 {
+                    defaultColor = renderer.material.color;
                     renderer.material.color = pickedUpColor; // Change color to red
                     rb.isKinematic = true;
 
