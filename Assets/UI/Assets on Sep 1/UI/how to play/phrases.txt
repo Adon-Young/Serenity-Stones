@@ -1,0 +1,4 @@
+Slide 1 : <cursor image> Click and hold to pick and place a stone 
+Slide 2 : <WASD Image> Use WASD while holding to rotate the stone
+Slide 3: <Stone tower image> Priotize the words and build the tower! 
+
