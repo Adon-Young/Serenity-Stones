@@ -4383,7 +4383,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &431261394
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10205,7 +10205,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1210710702
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10781,7 +10781,7 @@ MonoBehaviour:
   stoneTag: Stone
   requiredStoneCount: 5
   countdownText: {fileID: 426951415}
-  countdownAudio: {fileID: 0}
+  countdownAudio: {fileID: 1254568601}
   countdownClip: {fileID: 0}
 --- !u!4 &1254568600
 Transform:
