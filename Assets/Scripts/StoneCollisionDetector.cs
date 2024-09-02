@@ -2,19 +2,35 @@ using UnityEngine;
 
 public class StoneCollisionDetector : MonoBehaviour
 {
+    public bool IsCollidingWithStone { get; private set; } = false;
+    public bool IsCollidingWithBase { get; private set; } = false;
+
     private void OnCollisionEnter(Collision collision)
     {
-        // Debugging message
-        Debug.Log($"Collision detected with: {collision.gameObject.name}");
-
-        // Call the method to play sound from the CollisionAudioManager
         if (StoneAudio.Instance != null)
         {
             StoneAudio.Instance.PlayCollisionSound();
         }
         else
         {
-            Debug.LogWarning("CollisionAudioManager instance not found.");
+            Debug.LogWarning("StoneAudio instance not found.");
         }
+
+        if (collision.gameObject.CompareTag("Stone"))
+        {
+            IsCollidingWithStone = true;
+            Debug.Log(gameObject.name + " started colliding with another stone: " + collision.gameObject.name);
+        }
+   
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Stone"))
+        {
+            IsCollidingWithStone = false;
+            Debug.Log(gameObject.name + " stopped colliding with another stone: " + collision.gameObject.name);
+        }
+    
     }
 }

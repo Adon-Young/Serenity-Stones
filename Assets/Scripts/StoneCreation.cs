@@ -119,15 +119,13 @@ public class StoneCreation : MonoBehaviour
     {
         foreach (GameObject stone in stones)
         {
-            // Find the Canvas Transform within the stone
             Transform canvasTransform = FindCanvasTransform(stone);
-
             if (canvasTransform != null)
             {
-                // Update canvas position and rotation to keep it in front of the stone
                 UpdateCanvasPositionAndRotation(canvasTransform, stone.transform);
             }
         }
+
     }
 
     void UpdateCanvasPositionAndRotation(Transform canvasTransform, Transform stoneTransform)

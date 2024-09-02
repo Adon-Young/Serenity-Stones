@@ -3,7 +3,7 @@ using UnityEngine;
 public class StoneAudio : MonoBehaviour
 {
     public static StoneAudio Instance { get; private set; }
-    public AudioSource collisionSound; // The AudioSource on the AudioManager
+    public AudioSource collisionSound;
 
     private void Awake()
     {
@@ -11,6 +11,7 @@ public class StoneAudio : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject); // Optional: Keep this object across scenes
         }
         else
         {
@@ -26,7 +27,7 @@ public class StoneAudio : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("AudioSource or AudioClip is missing on the CollisionAudioManager.");
+            Debug.LogWarning("AudioSource or AudioClip is missing on the StoneAudio.");
         }
     }
 }
