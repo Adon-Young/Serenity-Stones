@@ -1,0 +1,32 @@
+using UnityEngine;
+
+public class StoneAudio : MonoBehaviour
+{
+    public static StoneAudio Instance { get; private set; }
+    public AudioSource collisionSound; // The AudioSource on the AudioManager
+
+    private void Awake()
+    {
+        // Implement Singleton pattern to ensure only one instance
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void PlayCollisionSound()
+    {
+        if (collisionSound != null && collisionSound.clip != null)
+        {
+            collisionSound.Play();
+        }
+        else
+        {
+            Debug.LogWarning("AudioSource or AudioClip is missing on the CollisionAudioManager.");
+        }
+    }
+}

@@ -27,8 +27,7 @@ public class StoneCreation : MonoBehaviour
     private float stoneMass = 10;
     public Color initialColor = new Color(0.3396226f, 0.3396226f, 0.3396226f);
 
-    public AudioSource StoneOnStone;
-    public string targetLayer = "Stone";
+   
 
     public GameObject[] StartingPositions;
 
@@ -110,11 +109,6 @@ public class StoneCreation : MonoBehaviour
 
     void Start()
     {
-
-        if (StoneOnStone == null)
-        {
-            StoneOnStone = GetComponent<AudioSource>();
-        }
 
             // Assigning the game camera-already in scene
             mainGameCamera = GameObject.Find("Main Camera");
@@ -426,25 +420,7 @@ public class StoneCreation : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        // Debug statement to show when a collision occurs
-        Debug.Log("Collision detected with: " + collision.gameObject.name);
 
-        // Check if the collision is with an object on the target layer
-        if (!stoneRB.isKinematic)
-        {
-            Debug.Log("Collision detected with: " + collision.gameObject.name);
-            if (StoneOnStone != null)
-            {
-                StoneOnStone.Play();
-            }
-            else
-            {
-                Debug.LogWarning("AudioSource is missing or not assigned.");
-            }
-        }
-    }
 
 }
 
