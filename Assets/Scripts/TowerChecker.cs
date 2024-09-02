@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; // Import this to use UI elements
 
 public class TowerChecker : MonoBehaviour
 {
@@ -9,6 +9,12 @@ public class TowerChecker : MonoBehaviour
     public int requiredStoneCount = 5;     // Number of stones required for completion
     private bool towerIsComplete;
     private int stonesCollidingWithStones = 0;  // Counter for stones colliding with other stones
+
+    public Text countdownText; // Reference to the UI Text component
+    public AudioSource countdownAudio; // Reference to the AudioSource component
+    public AudioClip countdownClip; // Audio clip to play during countdown
+
+    private bool countdownActive = false;
 
     void Update()
     {
@@ -30,18 +36,25 @@ public class TowerChecker : MonoBehaviour
         // Check if conditions for completing the tower are met
         if (allNonKinematic && stonesCollidingWithStones == requiredStoneCount)
         {
-            
-            Debug.Log("Tower is complete! StonesCollidingWithStones: " + stonesCollidingWithStones);
-
-            towerIsComplete = true;
-            StartCoroutine(WaitForStability());//waiting for the tower to become stable
-
+            if (!countdownActive)
+            {
+                Debug.Log("Tower is complete! StonesCollidingWithStones: " + stonesCollidingWithStones);
+                towerIsComplete = true;
+                StartCoroutine(WaitForStability()); // Start stability check with countdown
+            }
         }
         else
         {
             towerIsComplete = false;
-            
             Debug.Log("Tower is not complete. StonesCollidingWithStones: " + stonesCollidingWithStones);
+
+            // Ensure countdown is stopped and text is hidden
+            if (countdownActive)
+            {
+                StopCoroutine(WaitForStability());
+                countdownText.gameObject.SetActive(false);
+                countdownActive = false;
+            }
         }
     }
 
@@ -81,23 +94,56 @@ public class TowerChecker : MonoBehaviour
         return true;
     }
 
-
-
-  private IEnumerator WaitForStability()
+    private IEnumerator WaitForStability()
     {
-        yield return new WaitForSeconds(5);
+        countdownActive = true;
 
-        if (towerIsComplete == true)
+        // Ensure the countdown text is initialized and visible
+        if (countdownText != null)
         {
-            //so after the 5 seconds if the tower is still true then perform following logic...
-            gameObjectComplete.SetActive(true);
+            countdownText.gameObject.SetActive(true);
+            float countdownTime = 5f; // Countdown duration in seconds
+
+            // Play countdown audio
+            if (countdownAudio != null && countdownClip != null)
+            {
+                countdownAudio.clip = countdownClip;
+                countdownAudio.Play();
+            }
+            else
+            {
+                Debug.LogWarning("Countdown AudioSource or AudioClip is not assigned.");
+            }
+
+            while (countdownTime > 0)
+            {
+                countdownText.text = Mathf.Ceil(countdownTime).ToString();
+                countdownTime -= Time.deltaTime;
+                yield return null; // Wait for the next frame
+
+                // If stones fall during the countdown, stop the countdown
+                if (!towerIsComplete)
+                {
+                    countdownText.gameObject.SetActive(false);
+                    countdownActive = false;
+                    yield break; // Exit the coroutine
+                }
+            }
+
+            countdownText.text = "0"; // Ensure the text shows 0 at the end
+            countdownText.gameObject.SetActive(false); // Hide text when done
+
+            // After the countdown, check if the tower is still complete
+            if (towerIsComplete)
+            {
+                gameObjectComplete.SetActive(true);
+            }
         }
         else
         {
-
+            Debug.LogError("CountdownText is not assigned.");
         }
 
-
-
+        countdownActive = false;
     }
 }
