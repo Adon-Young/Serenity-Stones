@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -147,7 +147,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: MadhurUIBorder_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 145
+        width: 1740
+        height: 2038
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7414dbb2268386549aa2a568ebc1578b
+      internalID: -647911902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -158,7 +179,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MadhurUIBorder_0: -647911902
+      MadhurUIBorder_1: -1721050810
+      MadhurUIBorder_10: 2094931896
+      MadhurUIBorder_11: 1351582580
+      MadhurUIBorder_12: -1130435820
+      MadhurUIBorder_13: -441595074
+      MadhurUIBorder_14: 53619627
+      MadhurUIBorder_15: -1503718907
+      MadhurUIBorder_2: -712076588
+      MadhurUIBorder_3: 378293287
+      MadhurUIBorder_4: 1158636893
+      MadhurUIBorder_5: -432929884
+      MadhurUIBorder_6: 1790364454
+      MadhurUIBorder_7: 1827011595
+      MadhurUIBorder_8: -1023209944
+      MadhurUIBorder_9: -877225036
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
