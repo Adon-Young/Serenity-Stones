@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e5ef6c3537713814faccd77410d34b4e
+guid: 13671e7af58d16048856a1f98d5d00d9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -149,13 +149,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wasd keys_0
+      name: bentArrow_0
       rect:
         serializedVersion: 2
-        x: 93
-        y: 97
-        width: 67
-        height: 65
+        x: 156
+        y: 182
+        width: 77
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,71 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 458fb9abc3d50b648b15221ad150addf
-      internalID: 648259901
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wasd keys_1
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 13
-        width: 67
-        height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8dcd12191c8a4864c82e29b3527accb8
-      internalID: -113283472
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wasd keys_2
-      rect:
-        serializedVersion: 2
-        x: 93
-        y: 12
-        width: 67
-        height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 07750cf8cf6478f46abd4473616e95b6
-      internalID: -770147548
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wasd keys_3
-      rect:
-        serializedVersion: 2
-        x: 174
-        y: 11
-        width: 67
-        height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 41f861dad800ebc409ee0348f0fb3430
-      internalID: 122305582
+      spriteID: ae094b7432fd22341baccc37f1fbb97e
+      internalID: -1044485165
       vertices: []
       indices: 
       edges: []
@@ -235,7 +172,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 1344d60d8d1a884479c8dce70422edf0
     internalID: 0
     vertices: []
     indices: 
@@ -243,10 +180,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      wasd keys_0: 648259901
-      wasd keys_1: -113283472
-      wasd keys_2: -770147548
-      wasd keys_3: 122305582
+      bentArrow_0: -1044485165
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

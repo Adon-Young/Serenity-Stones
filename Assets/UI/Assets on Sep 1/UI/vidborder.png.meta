@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e5ef6c3537713814faccd77410d34b4e
+guid: d68a7cd84b9904943bced44f41bb5810
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -147,91 +147,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: wasd keys_0
-      rect:
-        serializedVersion: 2
-        x: 93
-        y: 97
-        width: 67
-        height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 458fb9abc3d50b648b15221ad150addf
-      internalID: 648259901
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wasd keys_1
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 13
-        width: 67
-        height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8dcd12191c8a4864c82e29b3527accb8
-      internalID: -113283472
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wasd keys_2
-      rect:
-        serializedVersion: 2
-        x: 93
-        y: 12
-        width: 67
-        height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 07750cf8cf6478f46abd4473616e95b6
-      internalID: -770147548
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: wasd keys_3
-      rect:
-        serializedVersion: 2
-        x: 174
-        y: 11
-        width: 67
-        height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 41f861dad800ebc409ee0348f0fb3430
-      internalID: 122305582
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -242,11 +158,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      wasd keys_0: 648259901
-      wasd keys_1: -113283472
-      wasd keys_2: -770147548
-      wasd keys_3: 122305582
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

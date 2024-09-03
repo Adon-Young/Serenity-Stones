@@ -77,6 +77,7 @@
     <Compile Include="Assets\Scripts\StoneAudio.cs" />
     <Compile Include="Assets\Scripts\Example Scripts\PoPUpMenuScriptManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
+    <Compile Include="Assets\Scripts\MainMenuHowTo.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\Downloaded Assets\Laterns and candles\scripts\ExtendedFlycam.cs" />
