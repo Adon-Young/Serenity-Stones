@@ -10,8 +10,15 @@ public class MainMenuHowTo : MonoBehaviour
     // Buttons for navigation
     public Button nextButton;
     public Button previousButton;
-   
+
     // Buttons for moving through the how to play screen at the start of the level
+
+
+    public void Start()
+    {
+        previousButton.interactable = currentScreenIndex > 0;
+
+    }
     public void NextButton()
     {
         // Move to the next screen if not at the end of the list
@@ -46,11 +53,23 @@ public class MainMenuHowTo : MonoBehaviour
         }
 
         // Update button states based on the current index
-    
+        UpdateButtonStates();
+    }
+    private void UpdateButtonStates()
+    {
+        if (howToPlayScreens.Length > 0)
+        {
+            // Disable the "Previous" button on the first screen
+            previousButton.interactable = currentScreenIndex > 0;
+
+            // Disable the "Next" button on the last screen
+            nextButton.interactable = currentScreenIndex < howToPlayScreens.Length - 1;
+
+            // Note: The conditions for showing the "Start Game" button or any other UI element
+            // should be handled elsewhere, as your example doesn't include it.
+        }
     }
 
 
-
- 
 
 }

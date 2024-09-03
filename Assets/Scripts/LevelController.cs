@@ -10,7 +10,7 @@ public class LevelController : MonoBehaviour
     public GameObject scenario1Screen; // UI for Scenario 1
     public GameObject scenario2Screen; // UI for Scenario 2
     public static bool freezeGamePlay; // Controls whether gameplay is frozen
-
+   
     // HowToPlayWalkthrough will hold all the screens for the how to play information
     public GameObject HowToPlayWalkThrough;
     public GameObject[] howToPlayScreens;
@@ -45,6 +45,7 @@ public class LevelController : MonoBehaviour
             // Set the flag so we don't show it again
             PlayerPrefs.SetInt("HasSeenHowToPlayInfo", 1);
             PlayerPrefs.Save(); // Save the changes
+            freezeGamePlay = true;
         }
         else
         {
@@ -117,17 +118,11 @@ public class LevelController : MonoBehaviour
             // Disable the "Previous" button on the first screen
             previousButton.interactable = currentScreenIndex > 0;
 
-            // Disable the "Next" button and show the "Start Game" button on the last screen
-            if (currentScreenIndex == howToPlayScreens.Length - 1)
-            {
-                nextButton.interactable = false;
-                startGameButton.gameObject.SetActive(true); // Show Start Game button
-            }
-            else
-            {
-                nextButton.interactable = true;
-                startGameButton.gameObject.SetActive(false); // Hide Start Game button
-            }
+            // Disable the "Next" button on the last screen
+            nextButton.interactable = currentScreenIndex < howToPlayScreens.Length - 1;
+
+            // Show the "Start Game" button only on the last screen
+            startGameButton.gameObject.SetActive(currentScreenIndex == howToPlayScreens.Length - 1);
         }
     }
 

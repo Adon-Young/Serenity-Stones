@@ -119,6 +119,7 @@
     <Compile Include="Assets\Scripts\LevelController.cs" />
     <Compile Include="Assets\Downloaded Assets\IL3DN\Scripts\IL3DN_SimpleMouseLook.cs" />
     <Compile Include="Assets\Scripts\Example Scripts\GoToRace.cs" />
+    <Compile Include="Assets\Scripts\BackToMenu.cs" />
     <Compile Include="Assets\Downloaded Assets\Polytope Studio\Lowpoly_Demos\Environment_Free\Helpers\PlayerMovement.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\Downloaded Assets\LowPolyWater_Pack\Scripts\LowPolyWater.cs" />

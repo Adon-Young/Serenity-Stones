@@ -10,6 +10,8 @@ public class TowerChecker : MonoBehaviour
     public int requiredStoneCount = 5;
     private bool towerIsComplete;
     private int stonesCollidingWithStones = 0;
+    public GameObject CanvasObj;
+    public GameObject gameOverCanvas;
 
     public Text countdownText;
     public AudioSource countdownAudio;
@@ -237,15 +239,19 @@ public class TowerChecker : MonoBehaviour
         //used to turn off the games UI depending on what scenario was selected...
         if (LevelController.scenario1chosen)
         {
+            
             S1CanvasPage.SetActive(false);
             countdownText.gameObject.SetActive(false);
             countdownActive = false;
+            CanvasObj.SetActive(false);
         }
         else
         {
+            
             S2CanvasPage.SetActive(false);
             countdownText.gameObject.SetActive(false);
             countdownActive = false;
+            CanvasObj.SetActive(false);
         }
 
     }
