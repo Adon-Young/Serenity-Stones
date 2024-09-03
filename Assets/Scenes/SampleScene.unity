@@ -549,12 +549,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3051120122614790153, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3051120122614790153, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: m_AllowRoll
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3051120122614790153, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: m_MaxParticleSize
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3051120122614790153, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3051120122614790153, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: m_ApplyActiveColorSpace
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3051120122614790153, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -570,7 +582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: lengthInSec
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: ShapeModule.type
@@ -583,6 +595,10 @@ PrefabInstance:
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: TrailModule.ratio
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: ForceModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: TrailModule.enabled
@@ -603,6 +619,10 @@ PrefabInstance:
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: ShapeModule.m_Scale.z
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: TrailModule.worldSpace
@@ -645,6 +665,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: TrailModule.minVertexDistance
       value: 0.05
       objectReference: {fileID: 0}
@@ -667,6 +691,10 @@ PrefabInstance:
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: LightsModule.intensityCurve.scalar
@@ -3060,10 +3088,10 @@ RectTransform:
   - {fileID: 1305047273}
   m_Father: {fileID: 431261394}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -55.099854, y: -31.800003}
-  m_SizeDelta: {x: 100, y: 350}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -45.49997, y: -182.40001}
+  m_SizeDelta: {x: 80, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &367229887
 MonoBehaviour:
@@ -3477,10 +3505,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 758328001}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.59997606, y: -119.500015}
-  m_SizeDelta: {x: 95.9073, y: 264.0201}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.8999827, y: 0.00000047683716}
+  m_SizeDelta: {x: 67.3266, y: 135.3258}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &379444630
 MonoBehaviour:
@@ -3502,36 +3530,32 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Self-Care Practices.
+  m_text: 'Self-Care
 
-    Daily Sun Exposure.
+    Daily Sun Exposure
 
-    Adequate Hydration.
+    Hydration
 
-    Early
-    Bedtime.
+    Early Nights
 
-    Mindful Fasting.
+    High-Protein
+    Foods
 
-    High-Protein Foods.
+    Diet
 
-    Dark Chocolate.
+    Regular Meditation
 
-    Regular
-    Meditation.
+    Active Chores
 
-    Active Chores.
+    Increased Vegetable
+    Intake
 
-    Increased Vegetable Intake.
+    Reduce Caffeine
 
-    Reduce
-    Caffeine.
+    Limit Sugar
 
-    Limit Sugar.
 
-    No caffeine
-
-    Avoid sugar '
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3558,8 +3582,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8
-  m_fontSizeBase: 8
+  m_fontSize: 7
+  m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4063,12 +4087,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3051120122614790153, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3051120122614790153, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: m_AllowRoll
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3051120122614790153, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: m_MaxParticleSize
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3051120122614790153, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3051120122614790153, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: m_ApplyActiveColorSpace
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3051120122614790153, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -4084,7 +4120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: lengthInSec
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: ShapeModule.type
@@ -4097,6 +4133,10 @@ PrefabInstance:
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: TrailModule.ratio
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: ForceModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: TrailModule.enabled
@@ -4117,6 +4157,10 @@ PrefabInstance:
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: ShapeModule.m_Scale.z
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: TrailModule.worldSpace
@@ -4157,6 +4201,10 @@ PrefabInstance:
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: TrailModule.sizeAffectsWidth
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: TrailModule.minVertexDistance
@@ -5374,10 +5422,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1705217382}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 1.800029, y: -101.4}
-  m_SizeDelta: {x: 95.9073, y: 264.0209}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.9, y: 0.0000014305115}
+  m_SizeDelta: {x: 67.3266, y: 135.3262}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &651015852
 MonoBehaviour:
@@ -5399,30 +5447,24 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Set Work Boundaries.
+  m_text: 'Work Boundaries
 
-    Delegate Tasks.
+    Delegate Tasks
 
-    Pursue Personal Projects.
+    Hobbies
 
-    Prioritize
-    Sleep.
-
-    Regular Meditation.
-
-    Family Time.
-
-    Regular Breaks.
-
-    Engage
-    in Social Activities.
-
-    Socialize.
-
-    Organize Priorities.
+    Prioritize Sleep
 
     Regular
-    Exercise.'
+    Meditation
+
+    Family Time
+
+    Regular Breaks
+
+    Socialise
+
+    Regular Exercise'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5449,8 +5491,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8
-  m_fontSizeBase: 8
+  m_fontSize: 7
+  m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6199,10 +6241,10 @@ RectTransform:
   - {fileID: 379444629}
   m_Father: {fileID: 1210710702}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -55.100098, y: -31.8}
-  m_SizeDelta: {x: 100, y: 350}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -45.5, y: -182.4}
+  m_SizeDelta: {x: 80, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &758328002
 MonoBehaviour:
@@ -8046,8 +8088,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.8000189, y: -26.2}
-  m_SizeDelta: {x: 95.9073, y: 29.1069}
+  m_AnchoredPosition: {x: -0.0000007748604, y: -20.9}
+  m_SizeDelta: {x: 72.0939, y: 20.1503}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1006597518
 MonoBehaviour:
@@ -8096,15 +8138,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 8
+  m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -10209,8 +10251,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.8000189, y: -26.199997}
-  m_SizeDelta: {x: 95.9073, y: 29.1069}
+  m_AnchoredPosition: {x: 0.00000011920929, y: -21}
+  m_SizeDelta: {x: 67.3266, y: 14.918999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1220443205
 MonoBehaviour:
@@ -10259,15 +10301,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 8
+  m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -11214,10 +11256,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 367229886}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 1.8, y: -101.4}
-  m_SizeDelta: {x: 95.9073, y: 264.0209}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.8999844, y: 0.00000047683716}
+  m_SizeDelta: {x: 72.0939, y: 182.7786}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1305047274
 MonoBehaviour:
@@ -11239,21 +11281,23 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Demanding job: Long hours, constant deadlines.
+  m_text: 'Long hours
 
-    Lack of family time:
-    Missing out on important moments.
+    Constant deadlines
 
-    Work intrudes on downtime: Hard to relax.
+    Lack of family time
 
-    Health
-    neglected: No time for exercise or self-care.
+    Work
+    intrudes on downtime
 
-    Burnout and stress: Feeling
-    overwhelmed and disconnected.
+    Hard to relax
 
-    Seeking balance: Need to find better work-life
-    equilibrium.'
+    Health neglected
+
+    Burnout and
+    stress
+
+    Seeking balance'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11280,8 +11324,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8
-  m_fontSizeBase: 8
+  m_fontSize: 7
+  m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -12444,10 +12488,10 @@ RectTransform:
   - {fileID: 2052870053}
   m_Father: {fileID: 1210710702}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -55.100098, y: -31.8}
-  m_SizeDelta: {x: 100, y: 350}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -45.49997, y: -182.40001}
+  m_SizeDelta: {x: 80, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1424234955
 MonoBehaviour:
@@ -12611,8 +12655,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.8, y: -21.8}
-  m_SizeDelta: {x: 95.9073, y: 29.107}
+  m_AnchoredPosition: {x: -0.0000007748604, y: -23.615646}
+  m_SizeDelta: {x: 72.0939, y: 20.1503}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1441802140
 MonoBehaviour:
@@ -12661,15 +12705,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 8
+  m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -13514,8 +13558,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.8, y: -21.800018}
-  m_SizeDelta: {x: 95.9073, y: 29.107}
+  m_AnchoredPosition: {x: 0.00000011920929, y: -21}
+  m_SizeDelta: {x: 67.3266, y: 14.918999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1589952156
 MonoBehaviour:
@@ -13564,15 +13608,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 8
+  m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -14303,10 +14347,10 @@ RectTransform:
   - {fileID: 651015851}
   m_Father: {fileID: 431261394}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -55.099854, y: -31.800003}
-  m_SizeDelta: {x: 100, y: 350}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -45.49997, y: -182.40001}
+  m_SizeDelta: {x: 80, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1705217383
 MonoBehaviour:
@@ -15988,12 +16032,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3051120122614790153, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3051120122614790153, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: m_AllowRoll
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3051120122614790153, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: m_MaxParticleSize
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3051120122614790153, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3051120122614790153, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: m_ApplyActiveColorSpace
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3051120122614790153, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -16009,7 +16065,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: lengthInSec
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: ShapeModule.type
@@ -16022,6 +16078,10 @@ PrefabInstance:
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: TrailModule.ratio
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: ForceModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: TrailModule.enabled
@@ -16042,6 +16102,10 @@ PrefabInstance:
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: ShapeModule.m_Scale.z
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: TrailModule.worldSpace
@@ -16084,6 +16148,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: TrailModule.minVertexDistance
       value: 0.05
       objectReference: {fileID: 0}
@@ -16105,6 +16173,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
@@ -17268,12 +17340,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3051120122614790153, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3051120122614790153, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: m_AllowRoll
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3051120122614790153, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: m_MaxParticleSize
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3051120122614790153, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3051120122614790153, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: m_ApplyActiveColorSpace
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3051120122614790153, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -17289,7 +17373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: lengthInSec
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: ShapeModule.type
@@ -17302,6 +17386,10 @@ PrefabInstance:
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: TrailModule.ratio
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: ForceModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: TrailModule.enabled
@@ -17322,6 +17410,10 @@ PrefabInstance:
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: ShapeModule.m_Scale.z
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: EmissionModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: TrailModule.worldSpace
@@ -17364,6 +17456,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: TrailModule.minVertexDistance
       value: 0.05
       objectReference: {fileID: 0}
@@ -17385,6 +17481,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7744362364801299784, guid: 19b92f968c1c6cd419b7bffc0fd85fec, type: 3}
@@ -17911,10 +18011,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1424234954}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.6, y: -119.5}
-  m_SizeDelta: {x: 95.9073, y: 264.0201}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.8999848, y: -6.9}
+  m_SizeDelta: {x: 72.0939, y: 182.778}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2052870054
 MonoBehaviour:
@@ -17936,22 +18036,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Late-night snacking: Frequent hunger and poor eating habits.
+  m_text: 'Frequent hunger
 
-    Intense
-    workouts: Trying to offset irregular eating with hard exercise.
+    Poor eating habits
 
-    Stressful
-    work hours: Affecting meal consistency and sleep.
+    Stressful work hours
 
-    Weight loss struggle:
-    Difficulty losing weight despite exercise.
+    Weight
+    loss struggle
 
-    Digestive issues: Bloating from
-    irregular eating.
+    Digestive issues
 
-    Lifestyle reconsideration: Thinking about changing lifestyle
-    for better results.'
+    Lifestyle reconsideration'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -17978,8 +18074,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8
-  m_fontSizeBase: 8
+  m_fontSize: 7
+  m_fontSizeBase: 7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
