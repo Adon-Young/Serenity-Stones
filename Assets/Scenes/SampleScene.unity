@@ -2581,7 +2581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8521003755692281657, guid: 8e0dbf1afa7e4a44482a277e4cf62c61, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -41.6
+      value: -41.600098
       objectReference: {fileID: 0}
     - target: {fileID: 8521003755692281657, guid: 8e0dbf1afa7e4a44482a277e4cf62c61, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9617,6 +9617,8 @@ MonoBehaviour:
   previousButton: {fileID: 2080102793}
   startGameButton: {fileID: 1084351796}
   GameCanvas: {fileID: 786451377}
+  Scenario1Description: {fileID: 0}
+  Scenario2Description: {fileID: 0}
 --- !u!114 &658821835
 MonoBehaviour:
   m_ObjectHideFlags: 0
