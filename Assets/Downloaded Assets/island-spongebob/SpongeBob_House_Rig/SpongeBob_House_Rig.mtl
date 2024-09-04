@@ -1,0 +1,94 @@
+newmtl Union1Mtl
+Material Color
+Ka 0.373615 0.368591 0.383775
+Kd 0.373615 0.368591 0.383775
+Ks 0.0234425 0.0231273 0.02408 
+
+d 1
+
+Ns 0
+
+newmtl Part2Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0627451 0.0627451 0.0627451 
+
+d 1
+
+Ns 0
+
+map_Ka Part2_diff.png
+map_Kd Part2_diff.png
+map_d Part2_diff.png
+
+newmtl Union7Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0627451 0.0627451 0.0627451 
+
+d 1
+
+Ns 0
+
+map_Ka Union7_diff.png
+map_Kd Union7_diff.png
+map_d Union7_diff.png
+
+newmtl Union2Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0627451 0.0627451 0.0627451 
+
+d 1
+
+Ns 0
+
+map_Ka Union2_diff.png
+map_Kd Union2_diff.png
+map_d Union2_diff.png
+
+newmtl Meshessbhosieplane0011Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.0745098 0.0745098 0.0745098 
+
+d 1
+
+Ns 0
+
+map_Ka Meshessbhosieplane0011_diff.png
+map_Kd Meshessbhosieplane0011_diff.png
+map_d Meshessbhosieplane0011_diff.png
+
+newmtl Meshessbhosiesmbbspongebobhouseleaves02mo1Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.027451 0.027451 0.027451 
+
+d 1
+
+Ns 0
+
+map_Ka Meshessbhosieplane0011_diff.png
+map_Kd Meshessbhosieplane0011_diff.png
+map_d Meshessbhosieplane0011_diff.png
+
+newmtl Meshessbhosieplane0021Mtl
+Material Color
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.027451 0.027451 0.027451 
+
+d 0.980392
+
+Ns 0
+
+map_Ka Meshessbhosieplane0011_diff.png
+map_Kd Meshessbhosieplane0011_diff.png
+map_d Meshessbhosieplane0011_diff.png
+
