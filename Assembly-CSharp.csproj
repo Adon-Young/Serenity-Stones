@@ -76,7 +76,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\Scripts\MenuManager.cs" />
     <Compile Include="Assets\Scripts\StoneAudio.cs" />
-    <Compile Include="Assets\Scripts\Example Scripts\PoPUpMenuScriptManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\MainMenuHowTo.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
@@ -86,6 +85,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
+    <Compile Include="Assets\Scripts\GoToRace.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\Downloaded Assets\IL3DN\Scripts\IL3DN_Wind.cs" />
     <Compile Include="Assets\Scripts\RandomUIDisplay.cs" />
@@ -100,13 +100,12 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\Scripts\ScenarioSelection.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
-    <Compile Include="Assets\Scripts\Example Scripts\cameraMan.cs" />
+    <Compile Include="Assets\Scripts\ScrollingBackground.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Scripts\StoneCollisionDetector.cs" />
     <Compile Include="Assets\Scripts\ThemeSelection.cs" />
     <Compile Include="Assets\Downloaded Assets\Polytope Studio\Lowpoly_Demos\Environment_Free\Helpers\MouseLook.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
-    <Compile Include="Assets\Scripts\Example Scripts\ScrollingBackground.cs" />
     <Compile Include="Assets\Scripts\PopUpInfo.cs" />
     <Compile Include="Assets\Downloaded Assets\IL3DN\Scripts\IL3DN_SimpleFPSController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
@@ -119,7 +118,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\LevelController.cs" />
     <Compile Include="Assets\Downloaded Assets\IL3DN\Scripts\IL3DN_SimpleMouseLook.cs" />
-    <Compile Include="Assets\Scripts\Example Scripts\GoToRace.cs" />
     <Compile Include="Assets\Scripts\BackToMenu.cs" />
     <Compile Include="Assets\Downloaded Assets\Polytope Studio\Lowpoly_Demos\Environment_Free\Helpers\PlayerMovement.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />

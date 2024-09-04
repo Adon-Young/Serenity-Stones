@@ -10,6 +10,7 @@ public class MainMenuHowTo : MonoBehaviour
     // Buttons for navigation
     public Button nextButton;
     public Button previousButton;
+ 
 
     // Buttons for moving through the how to play screen at the start of the level
 
@@ -70,6 +71,26 @@ public class MainMenuHowTo : MonoBehaviour
         }
     }
 
+    public void ResetHowToPlayScreen()
+    {
+        // Ensure the screens array is not empty
+        if (howToPlayScreens.Length > 0)
+        {
+            // Set all screens to inactive
+            foreach (GameObject screen in howToPlayScreens)
+            {
+                screen.SetActive(false);
+            }
 
+            // Activate the first screen
+            howToPlayScreens[0].SetActive(true);
+
+            // Reset the current screen index to the start
+            currentScreenIndex = 0;
+
+            // Update button states to reflect the reset
+            UpdateButtonStates();
+        }
+    }
 
 }
