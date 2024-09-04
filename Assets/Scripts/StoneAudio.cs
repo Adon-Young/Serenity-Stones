@@ -11,7 +11,7 @@ public class StoneAudio : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Optional: Keep this object across scenes
+            // Removed DontDestroyOnLoad as it's not needed
         }
         else
         {

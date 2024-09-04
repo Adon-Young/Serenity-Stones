@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,26 +12,43 @@ public class MenuManager : MonoBehaviour
 
     public Image scenario1DisplayMainMenu;
     public Image scenario2DisplayMainMenu;
+    public TextMeshProUGUI scenario1ReflectionText;
+    public TextMeshProUGUI scenario2ReflectionText;
 
     void Start()
     {
         if (ScreenshotSaving.Instance != null)
         {
-            Texture2D scenario1Screenshot = ScreenshotSaving.Instance.GetScreenshot(true);
-            Texture2D scenario2Screenshot = ScreenshotSaving.Instance.GetScreenshot(false);
-
-            if (scenario1Screenshot != null)
-            {
-                scenario1DisplayMainMenu.sprite = Sprite.Create(scenario1Screenshot, new Rect(0, 0, scenario1Screenshot.width, scenario1Screenshot.height), Vector2.zero);
-            }
-
-            if (scenario2Screenshot != null)
-            {
-                scenario2DisplayMainMenu.sprite = Sprite.Create(scenario2Screenshot, new Rect(0, 0, scenario2Screenshot.width, scenario2Screenshot.height), Vector2.zero);
-            }
+            DisplayScreenshots();
+            DisplayReflections();
         }
 
         ShowStartScreen();
+    }
+
+    private void DisplayScreenshots()
+    {
+        Texture2D scenario1Screenshot = ScreenshotSaving.Instance.GetScreenshot(true);
+        Texture2D scenario2Screenshot = ScreenshotSaving.Instance.GetScreenshot(false);
+
+        if (scenario1Screenshot != null)
+        {
+            scenario1DisplayMainMenu.sprite = Sprite.Create(scenario1Screenshot, new Rect(0, 0, scenario1Screenshot.width, scenario1Screenshot.height), new Vector2(0.5f, 0.5f));
+        }
+
+        if (scenario2Screenshot != null)
+        {
+            scenario2DisplayMainMenu.sprite = Sprite.Create(scenario2Screenshot, new Rect(0, 0, scenario2Screenshot.width, scenario2Screenshot.height), new Vector2(0.5f, 0.5f));
+        }
+    }
+
+    private void DisplayReflections()
+    {
+        string scenario1Reflection = ScreenshotSaving.Instance.GetReflection(true);
+        string scenario2Reflection = ScreenshotSaving.Instance.GetReflection(false);
+
+        scenario1ReflectionText.text = !string.IsNullOrEmpty(scenario1Reflection) ? scenario1Reflection : "No reflection available for Scenario 1.";
+        scenario2ReflectionText.text = !string.IsNullOrEmpty(scenario2Reflection) ? scenario2Reflection : "No reflection available for Scenario 2.";
     }
 
     public void ShowStartScreen()

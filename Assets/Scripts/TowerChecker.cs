@@ -1,5 +1,6 @@
 using JetBrains.Annotations;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,6 +28,9 @@ public class TowerChecker : MonoBehaviour
 
     public GameObject S1CanvasPage;
     public GameObject S2CanvasPage;
+
+    public TMP_InputField scenario1ReflectionInput; // Input field for scenario 1 reflection
+    public TMP_InputField scenario2ReflectionInput; // Input field for scenario 2 reflection
 
     private bool countdownActive = false;
     private bool gameOver = false;  // New variable to track game over state
@@ -170,6 +174,7 @@ public class TowerChecker : MonoBehaviour
             {
                 gameObjectComplete.SetActive(true);
                 TakeTheScreenshot();
+                SavePlayerReflections();  // Save the player's reflections for both scenarios
                 DisplayScreenshot(); // Display the screenshot after it's taken
                 GameOver();
             }
@@ -228,6 +233,30 @@ public class TowerChecker : MonoBehaviour
         }
     }
 
+    // New function to save player's reflections for both scenarios
+    void SavePlayerReflections()
+    {
+        if (scenario1ReflectionInput != null && scenario2ReflectionInput != null)
+        {
+            if (LevelController.scenario1chosen)
+            {
+                string scenario1Reflection = scenario1ReflectionInput.text;
+                ScreenshotSaving.Instance.SaveReflection(scenario1Reflection, true);
+            }
+            else
+            {
+                string scenario2Reflection = scenario2ReflectionInput.text;
+                ScreenshotSaving.Instance.SaveReflection(scenario2Reflection, false);
+            }
+        }
+        else
+        {
+            Debug.LogError("Reflection InputFields are not assigned.");
+        }
+    }
+
+
+
     // New function to handle game over state
     public void GameOver()
     {
@@ -235,11 +264,9 @@ public class TowerChecker : MonoBehaviour
         StopAllCoroutines(); // Stop all coroutines
         countdownText.gameObject.SetActive(false); // Hide the countdown text
 
-
-        //used to turn off the games UI depending on what scenario was selected...
+        // Used to turn off the game's UI depending on what scenario was selected...
         if (LevelController.scenario1chosen)
         {
-            
             S1CanvasPage.SetActive(false);
             countdownText.gameObject.SetActive(false);
             countdownActive = false;
@@ -247,12 +274,10 @@ public class TowerChecker : MonoBehaviour
         }
         else
         {
-            
             S2CanvasPage.SetActive(false);
             countdownText.gameObject.SetActive(false);
             countdownActive = false;
             CanvasObj.SetActive(false);
         }
-
     }
 }

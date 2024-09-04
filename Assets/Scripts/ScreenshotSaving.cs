@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.UI;
 public class ScreenshotSaving : MonoBehaviour
 {
     public static ScreenshotSaving Instance { get; private set; }
@@ -7,9 +7,14 @@ public class ScreenshotSaving : MonoBehaviour
     public Texture2D scenario1Screenshot;
     public Texture2D scenario2Screenshot;
 
+    public string scenario1Reflection;
+    public string scenario2Reflection;
+
+    public Text S1Reflection;
+    public Text S2Reflection;
+
     private void Awake()
     {
-        // Implement Singleton pattern
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -36,4 +41,22 @@ public class ScreenshotSaving : MonoBehaviour
     {
         return scenario1Chosen ? scenario1Screenshot : scenario2Screenshot;
     }
+
+    public void SaveReflection(string reflection, bool scenario1Chosen)
+    {
+        if (scenario1Chosen)
+        {
+            scenario1Reflection = reflection;
+        }
+        else
+        {
+            scenario2Reflection = reflection;
+        }
+    }
+
+    public string GetReflection(bool scenario1Chosen)
+    {
+        return scenario1Chosen ? scenario1Reflection : scenario2Reflection;
+    }
+
 }
