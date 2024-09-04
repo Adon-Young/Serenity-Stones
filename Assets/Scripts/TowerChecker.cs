@@ -174,7 +174,7 @@ public class TowerChecker : MonoBehaviour
             {
                 gameObjectComplete.SetActive(true);
                 TakeTheScreenshot();
-                SavePlayerReflections();  // Save the player's reflections for both scenarios
+                
                 DisplayScreenshot(); // Display the screenshot after it's taken
                 GameOver();
             }
@@ -234,7 +234,7 @@ public class TowerChecker : MonoBehaviour
     }
 
     // New function to save player's reflections for both scenarios
-    void SavePlayerReflections()
+    public void SavePlayerReflections()
     {
         if (scenario1ReflectionInput != null && scenario2ReflectionInput != null)
         {
@@ -254,6 +254,7 @@ public class TowerChecker : MonoBehaviour
             Debug.LogError("Reflection InputFields are not assigned.");
         }
     }
+
 
 
 

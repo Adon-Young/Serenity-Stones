@@ -17,6 +17,7 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
+        // Display screenshots and reflections if ScreenshotSaving instance exists
         if (ScreenshotSaving.Instance != null)
         {
             DisplayScreenshots();
