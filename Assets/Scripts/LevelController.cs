@@ -20,7 +20,7 @@ public class LevelController : MonoBehaviour
     public Button nextButton;
     public Button previousButton;
     public Button startGameButton; // Disables the How to Play walkthrough screen and unfreezes the gameplay
-
+    public GameObject GameCanvas;
     private void Awake()
     {
    
@@ -32,6 +32,7 @@ public class LevelController : MonoBehaviour
         // Check if the player has already seen the HowToPlay walkthrough
         if (PlayerPrefs.GetInt("HasSeenHowToPlayInfo", 0) == 0)
         {
+            GameCanvas.SetActive(false);//we want the canvas disabled when the how to play screen is on
             ShowTutorialUI();
             // Set the flag so we don't show it again
             PlayerPrefs.SetInt("HasSeenHowToPlayInfo", 1);
@@ -40,6 +41,7 @@ public class LevelController : MonoBehaviour
         }
         else
         {
+            GameCanvas.SetActive(true);//reactivate if player has already seen the how to play screen
             // If already seen, hide the HowToPlayWalkThrough
             HowToPlayWalkThrough.SetActive(false);
             freezeGamePlay = false;
@@ -121,7 +123,7 @@ public class LevelController : MonoBehaviour
     public void Play()
     {
         freezeGamePlay = false;
-
+        GameCanvas.SetActive(true);//reactivate if player has already seen the how to play screen
         // Disable the HowToPlayWalkThrough and all its children
         HowToPlayWalkThrough.gameObject.SetActive(false);
     }

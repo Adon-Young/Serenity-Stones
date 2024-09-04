@@ -126,6 +126,20 @@ public class StoneCreation : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ResetAllStones();
+        }
+
+
+    }
+    //reset button implamentation...
+    void ResetAllStones()
+    {
+        foreach (GameObject stone in stones)
+        {
+            ResetStone(stone);
+        }
     }
 
     void UpdateCanvasPositionAndRotation(Transform canvasTransform, Transform stoneTransform)
