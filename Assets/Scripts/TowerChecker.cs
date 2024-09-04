@@ -163,6 +163,13 @@ public class TowerChecker : MonoBehaviour
                 {
                     countdownText.gameObject.SetActive(false);
                     countdownActive = false;
+
+                    // Stop the countdown audio
+                    if (countdownAudio != null && countdownAudio.isPlaying)
+                    {
+                        countdownAudio.Stop();
+                    }
+
                     yield break;
                 }
             }
@@ -174,7 +181,7 @@ public class TowerChecker : MonoBehaviour
             {
                 gameObjectComplete.SetActive(true);
                 TakeTheScreenshot();
-                
+
                 DisplayScreenshot(); // Display the screenshot after it's taken
                 GameOver();
             }
