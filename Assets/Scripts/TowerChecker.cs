@@ -271,6 +271,7 @@ public class TowerChecker : MonoBehaviour
         gameOver = true; // Set game over state
         StopAllCoroutines(); // Stop all coroutines
         countdownText.gameObject.SetActive(false); // Hide the countdown text
+        LevelController.freezeGamePlay = true;
 
         // Used to turn off the game's UI depending on what scenario was selected...
         if (LevelController.scenario1chosen)

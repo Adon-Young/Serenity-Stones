@@ -21,6 +21,11 @@ public class LevelController : MonoBehaviour
     public Button previousButton;
     public Button startGameButton; // Disables the How to Play walkthrough screen and unfreezes the gameplay
     public GameObject GameCanvas;
+
+    public GameObject Scenario1Description;
+    public GameObject Scenario2Description;
+
+
     private void Awake()
     {
    
@@ -38,12 +43,15 @@ public class LevelController : MonoBehaviour
             PlayerPrefs.SetInt("HasSeenHowToPlayInfo", 1);
             PlayerPrefs.Save(); // Save the changes
             freezeGamePlay = true;
+
         }
         else
         {
             GameCanvas.SetActive(true);//reactivate if player has already seen the how to play screen
             // If already seen, hide the HowToPlayWalkThrough
             HowToPlayWalkThrough.SetActive(false);
+
+
             freezeGamePlay = false;
         }
 
