@@ -2581,7 +2581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8521003755692281657, guid: 8e0dbf1afa7e4a44482a277e4cf62c61, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -41.6
+      value: -41.600098
       objectReference: {fileID: 0}
     - target: {fileID: 8521003755692281657, guid: 8e0dbf1afa7e4a44482a277e4cf62c61, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9981,6 +9981,8 @@ MonoBehaviour:
   previousButton: {fileID: 2080102793}
   startGameButton: {fileID: 1084351796}
   GameCanvas: {fileID: 786451377}
+  Scenario1Description: {fileID: 0}
+  Scenario2Description: {fileID: 0}
 --- !u!114 &658821835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10611,16 +10613,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 704058386}
-  m_LocalRotation: {x: -0, y: -0, z: 0.07597431, w: 0.9971098}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8055301, y: 0.77028817, z: 0.80553}
+  m_LocalScale: {x: 1, y: 0.9562499, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2078275428}
+  m_Father: {fileID: 823509114}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 286.2, y: -211.6}
+  m_AnchoredPosition: {x: 124.8, y: -127.9}
   m_SizeDelta: {x: 235, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &704058388
@@ -11074,16 +11076,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 742218461}
-  m_LocalRotation: {x: -0, y: -0, z: 0.07597431, w: 0.9971098}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.8055301, y: 0.77028817, z: 0.80553}
+  m_LocalScale: {x: 1, y: 0.9562499, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2078275428}
+  m_Father: {fileID: 823509114}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 286.2, y: -211.60002}
+  m_AnchoredPosition: {x: 124.8, y: -127.90004}
   m_SizeDelta: {x: 235, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &742218463
@@ -12438,6 +12440,8 @@ RectTransform:
   m_LocalScale: {x: 0.8055301, y: 0.8055301, z: 0.80553}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 742218462}
+  - {fileID: 704058387}
   - {fileID: 1712582678}
   m_Father: {fileID: 2078275428}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 8.714}
@@ -19076,7 +19080,7 @@ MonoBehaviour:
   gameOverCanvas: {fileID: 0}
   countdownText: {fileID: 426951415}
   countdownAudio: {fileID: 1254568601}
-  countdownClip: {fileID: 0}
+  countdownClip: {fileID: 8300000, guid: deed7f1fe17489348b3fb497869a8cca, type: 3}
   screenshotCamera: {fileID: 963194227}
   scenario1DisplayEndOfLevel: {fileID: 742218463}
   scenario2DisplayEndOfLevel: {fileID: 704058388}
@@ -32739,8 +32743,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 704058387}
-  - {fileID: 742218462}
   - {fileID: 823509114}
   - {fileID: 1477849469}
   - {fileID: 752060766}

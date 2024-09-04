@@ -163,6 +163,13 @@ public class TowerChecker : MonoBehaviour
                 {
                     countdownText.gameObject.SetActive(false);
                     countdownActive = false;
+
+                    // Stop the countdown audio
+                    if (countdownAudio != null && countdownAudio.isPlaying)
+                    {
+                        countdownAudio.Stop();
+                    }
+
                     yield break;
                 }
             }
@@ -174,7 +181,7 @@ public class TowerChecker : MonoBehaviour
             {
                 gameObjectComplete.SetActive(true);
                 TakeTheScreenshot();
-                
+
                 DisplayScreenshot(); // Display the screenshot after it's taken
                 GameOver();
             }
@@ -264,6 +271,7 @@ public class TowerChecker : MonoBehaviour
         gameOver = true; // Set game over state
         StopAllCoroutines(); // Stop all coroutines
         countdownText.gameObject.SetActive(false); // Hide the countdown text
+        LevelController.freezeGamePlay = true;
 
         // Used to turn off the game's UI depending on what scenario was selected...
         if (LevelController.scenario1chosen)
