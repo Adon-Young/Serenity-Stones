@@ -1,13 +1,15 @@
 using UnityEngine;
 using TMPro;
 
+
 public class Movement : MonoBehaviour
 {
     private Camera mainCamera;
     private GameObject selectedStone;
     private TMP_InputField activeInputField;
     private bool isDragging = false;
- 
+    public static bool CanReset;
+
     private enum StoneState
     {
         Moveability,
@@ -22,8 +24,12 @@ public class Movement : MonoBehaviour
 
     public float keyRotationAmount = 0.5f; // Rotation amount
 
+ 
+
+
     void Start()
     {
+        CanReset = true;
         mainCamera = Camera.main;
         if (mainCamera == null)
         {
@@ -63,6 +69,7 @@ public class Movement : MonoBehaviour
                     HandleRotation();
                     if (Input.GetMouseButtonDown(1)) // Right click
                     {
+                        CanReset = false;
                         ToggleInputField();
                     }
                     break;
@@ -70,6 +77,7 @@ public class Movement : MonoBehaviour
                 case StoneState.Text:
                     if (Input.GetMouseButtonDown(1)) // Right click
                     {
+                        CanReset = true;
                         SwitchToMoveabilityState();
                     }
                     break;

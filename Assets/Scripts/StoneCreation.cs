@@ -63,7 +63,7 @@ public class StoneCreation : MonoBehaviour
     "Early to Bed",
     "Intermittent Fasting",
     "Lean Proteins",
-    "Dark Chocolate",
+    "Healthy Snacks",
     "Breathing Exercises",
     "Daily Steps",
     "Whole Foods",
@@ -76,7 +76,27 @@ public class StoneCreation : MonoBehaviour
     "Balanced Snacks",
     "Probiotics",
     "Outdoor Activity",
-    "Limit Processed Foods"
+    "Limit Processed Foods",
+    "Processed Foods",
+    "Excess Sugar",
+    "High Sodium",
+    "Refined Carbs",
+    "Unhealthy Fats",
+    "Fast Food",
+    "Low Nutrient",
+    "Empty Calories",
+    "Artificial Sweeteners",
+    "High Fat",
+    "Sugary Beverages",
+    "Inconsistent Meals",
+    "Overeating",
+    "Junk Food",
+    "Trans Fats",
+    "High Cholesterol",
+    "Low Fiber",
+    "Nutrient Deficient",
+    "Excessive Caffeine",
+    "Excessive Alcohol"
     };
 
     private List<string> S2words = new List<string>
@@ -101,7 +121,27 @@ public class StoneCreation : MonoBehaviour
     "Disconnect to Reconnect",
     "Family Dinners",
     "Volunteering",
-    "Morning Rituals"
+    "Morning Rituals",
+    "Work Overload",
+    "Constant Overtime",
+    "Neglecting Health",
+    "Burnout",
+    "Skipping Meals",
+    "Unclear Boundaries",
+    "Missing Deadlines",
+    "High Stress Levels",
+    "Irritability",
+    "Unreliable Schedule",
+    "Ignoring Personal Time",
+    "Constant Connectivity",
+    "Neglecting Relationships",
+    "Neglecting Hobbies",
+    "Frequent Interruptions",
+    "Unbalanced Priorities",
+    "Poor Time Management",
+    "Frequent Absences",
+    "Lack of Relaxation",
+    "Work-Life Conflict"
     };
 
 
@@ -126,7 +166,7 @@ public class StoneCreation : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && Movement.CanReset == true)
         {
             ResetAllStones();
         }

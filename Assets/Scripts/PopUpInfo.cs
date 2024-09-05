@@ -1,38 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
-
+using UnityEngine;
+using System.Collections;
 public class PopUpInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public GameObject HoverButton;
-
+    private bool mouseHover = false;
+    private Coroutine hideCoroutine = null;
 
     void Start()
     {
-        HoverButton.SetActive(false);//the ship information is origionally set to false
+        HoverButton.SetActive(false);
     }
 
-    private bool mouseHover = false;//if this variable is true then the information is revealed to the player
     void Update()
     {
         if (mouseHover)
         {
-            Debug.Log("Mouse Over");//this was just for testing to see if the code was working properly
+            Debug.Log("Mouse Over");
         }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         mouseHover = true;
-        HoverButton.SetActive(true);//this sets the ships stats infor box to true allowing the player to see the ship information
+        HoverButton.SetActive(true);
+
+        if (hideCoroutine != null)
+        {
+            StopCoroutine(hideCoroutine);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        mouseHover = false;//if the mouse is not hovering over the button then the informaiton doesnt pop up for  the ship
-        HoverButton.SetActive(false);
+        mouseHover = false;
+        hideCoroutine = StartCoroutine(HideAfterDelay());
     }
 
-}//end of class
+    private IEnumerator HideAfterDelay()
+    {
+        yield return new WaitForSeconds(0.1f); // Adjust the delay time if needed
+        if (!mouseHover) // Double-check the mouse hasn't re-entered
+        {
+            HoverButton.SetActive(false);
+        }
+    }
+}
