@@ -12,7 +12,7 @@ public class ResetStone : MonoBehaviour
 
             if (stone == null)
             {
-                Debug.LogWarning("Collided object is null.");
+               
                 return;
             }
 
@@ -21,10 +21,7 @@ public class ResetStone : MonoBehaviour
             {
                 stoneCreation.ResetStone(stone);
             }
-            else
-            {
-                Debug.LogError("StoneCreation reference is not assigned.");
-            }
+         
         }
     }
 }

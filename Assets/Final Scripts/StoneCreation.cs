@@ -241,10 +241,7 @@ public class StoneCreation : MonoBehaviour
                 // Ensure the canvas faces the camera
                 FaceTheCamera(canvasTransform);
             }
-            else
-            {
-                Debug.LogWarning("No Canvas found in the instantiated stone prefab.");
-            }
+        
 
             // Optionally: Find the TMP_InputField component and set the text
             CreateStoneText(stone);
@@ -257,10 +254,7 @@ public class StoneCreation : MonoBehaviour
         {
             meshRenderer.material.color = color;
         }
-        else
-        {
-            Debug.LogWarning("No MeshRenderer found on the stone.");
-        }
+     
     }
     public void ResetStone(GameObject stone)
     {
@@ -270,7 +264,7 @@ public class StoneCreation : MonoBehaviour
         int index = stones.IndexOf(stone);
         if (index < 0 || index >= StartingPositions.Length)
         {
-            Debug.LogError("Stone index out of bounds.");
+            
             return;
         }
 
@@ -278,7 +272,7 @@ public class StoneCreation : MonoBehaviour
         GameObject startPositionObject = StartingPositions[index];
         if (startPositionObject == null)
         {
-            Debug.LogError("Starting position GameObject is null.");
+            
             return;
         }
 
@@ -361,7 +355,6 @@ public class StoneCreation : MonoBehaviour
     {
         if (mainGameCamera == null)
         {
-            Debug.LogError("MainCam Not found");
             return;
         }
 
@@ -392,10 +385,7 @@ public class StoneCreation : MonoBehaviour
                 placeholderText.text = randomWord;
 
             }
-            else
-            {
-                Debug.LogWarning("TextMeshProUGUI component not found in the TMP_InputField's placeholder.");
-            }
+         
 
             // Find the canvas that is a child of the stone and face the camera
             Transform canvasTransform = FindCanvasTransform(stone);
@@ -403,15 +393,9 @@ public class StoneCreation : MonoBehaviour
             {
                 FaceTheCamera(canvasTransform);
             }
-            else
-            {
-                Debug.LogWarning("No Canvas found on the stone prefab.");
-            }
+         
         }
-        else
-        {
-            Debug.LogWarning("No TMP_InputField found on the stone prefab.");
-        }
+       
     }
 
 
@@ -446,15 +430,9 @@ public class StoneCreation : MonoBehaviour
             {
                 return inputField;
             }
-            else
-            {
-                Debug.LogWarning("No TMP_InputField found within the Canvas on the stone.");
-            }
+         
         }
-        else
-        {
-            Debug.LogWarning("No Canvas named 'StoneCanvas' found on the stone.");
-        }
+      
 
         return null;
     }

@@ -26,50 +26,64 @@ public class LevelController : MonoBehaviour
     public GameObject Scenario2Description;
 
 
-    private void Awake()
-    {
-   
-        freezeGamePlay = true;
-    }
 
     private void Start()
     {
-        // Check if the player has already seen the HowToPlay walkthrough
-        if (PlayerPrefs.GetInt("HasSeenHowToPlayInfo", 0) == 0)
-        {
-            GameCanvas.SetActive(false);//we want the canvas disabled when the how to play screen is on
-            ShowTutorialUI();
-            // Set the flag so we don't show it again
-            PlayerPrefs.SetInt("HasSeenHowToPlayInfo", 1);
-            PlayerPrefs.Save(); // Save the changes
-            freezeGamePlay = true;
+        freezeGamePlay = true;
+        GameCanvas.SetActive(false);//we want the canvas disabled when the how to play screen is on
 
+        if (scenario1chosen)
+        {
+
+           
+            Scenario1Description.SetActive(true);
+            
         }
         else
         {
-            GameCanvas.SetActive(true);//reactivate if player has already seen the how to play screen
-            // If already seen, hide the HowToPlayWalkThrough
-            HowToPlayWalkThrough.SetActive(false);
 
-
-            freezeGamePlay = false;
+            
+            Scenario2Description.SetActive(true);
+            
         }
 
-        // Initialize button states
         UpdateButtonStates();
     }
+
+
+    public void OpenHowToPlayScreen()
+    {
+       
+            GameCanvas.SetActive(false);//we want the canvas disabled when the how to play screen is on
+            ShowTutorialUI();
+            freezeGamePlay = true;
+            UpdateButtonStates();
+    }
+
+    public void CloseHowToPlayScreen()
+    {
+        GameCanvas.SetActive(true);//we want the canvas disabled when the how to play screen is on
+        ShowTutorialUI();
+        freezeGamePlay = false;
+        UpdateButtonStates();
+    }
+
 
     private void Update()
     {
         // Update the scenario screens based on the chosen scenario
         if (scenario1chosen)
         {
+            
             scenario1Screen.SetActive(true);
+            
             scenario2Screen.SetActive(false);
         }
         else
         {
+            
             scenario1Screen.SetActive(false);
+         
             scenario2Screen.SetActive(true);
         }
     }
@@ -128,17 +142,21 @@ public class LevelController : MonoBehaviour
     }
 
     // Attached to start button to unfreeze the gameplay
-    public void Play()
-    {
-        freezeGamePlay = false;
-        GameCanvas.SetActive(true);//reactivate if player has already seen the how to play screen
-        // Disable the HowToPlayWalkThrough and all its children
-        HowToPlayWalkThrough.gameObject.SetActive(false);
-    }
+
 
     private void ShowTutorialUI()
     {
         HowToPlayWalkThrough.SetActive(true);
         UpdateScreen(); // Initialize the screen update
+    }
+
+
+    public void CloseScenario()
+    {
+        Scenario1Description.SetActive(false);
+        Scenario2Description.SetActive(false);
+        GameCanvas.SetActive(true);//we want the canvas disabled when the how to play screen is on
+        freezeGamePlay = false;
+
     }
 }

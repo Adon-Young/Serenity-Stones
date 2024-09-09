@@ -25,9 +25,6 @@ public class StoneAudio : MonoBehaviour
         {
             collisionSound.Play();
         }
-        else
-        {
-            Debug.LogWarning("AudioSource or AudioClip is missing on the StoneAudio.");
-        }
+     
     }
 }

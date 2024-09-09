@@ -119,20 +119,11 @@ public class Movement : MonoBehaviour
                     selectedStone.transform.position = position;
 
                 }
-                else
-                {
-                    Debug.LogError("No MeshRenderer found on the selected stone.");
-                }
+              
             }
-            else
-            {
-                Debug.LogError("No Rigidbody found on the selected stone.");
-            }
+           
         }
-        else
-        {
-            Debug.LogWarning("No stone selected with the mouse.");
-        }
+      
     }
 
     void ReleaseStone()
@@ -149,10 +140,7 @@ public class Movement : MonoBehaviour
                     rb.isKinematic = false;
                 }
             }
-            else
-            {
-                Debug.LogError("No MeshRenderer found on the selected stone.");
-            }
+          
         }
 
         selectedStone = null;
@@ -191,10 +179,7 @@ public class Movement : MonoBehaviour
                     SwitchToTextState(inputField);
                 }
             }
-            else
-            {
-                Debug.LogWarning("No TMP_InputField found on the selected stone.");
-            }
+         
         }
     }
 

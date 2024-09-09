@@ -48,8 +48,8 @@ public class MenuManager : MonoBehaviour
         string scenario1Reflection = ScreenshotSaving.Instance.GetReflection(true);
         string scenario2Reflection = ScreenshotSaving.Instance.GetReflection(false);
 
-        scenario1ReflectionText.text = !string.IsNullOrEmpty(scenario1Reflection) ? scenario1Reflection : "No reflection available for Scenario 1.";
-        scenario2ReflectionText.text = !string.IsNullOrEmpty(scenario2Reflection) ? scenario2Reflection : "No reflection available for Scenario 2.";
+        scenario1ReflectionText.text = !string.IsNullOrEmpty(scenario1Reflection) ? scenario1Reflection : "...";
+        scenario2ReflectionText.text = !string.IsNullOrEmpty(scenario2Reflection) ? scenario2Reflection : "...";
     }
 
     public void ShowStartScreen()

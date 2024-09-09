@@ -64,7 +64,7 @@ public class ThemeEnabler : MonoBehaviour
 
                 break;
             default:
-                Debug.LogError("Invalid button index selected. Index: " + ThemeSelection.selectedButtonIndex);
+              
                 break;
         }
     }
@@ -81,10 +81,7 @@ public class ThemeEnabler : MonoBehaviour
             {
                 stoneCreation.UpdateStoneMaterials(stoneMaterials[index]);
             }
-            else
-            {
-                Debug.Log("stone creation script not found");
-            }
+         
         }
 
     }
@@ -96,10 +93,7 @@ public class ThemeEnabler : MonoBehaviour
         {
             SpeechBubbleThemes[index].SetActive(true);
         }
-        else
-        {
-            Debug.LogError("Invalid theme index or themeObjects array is not set up correctly.");
-        }
+     
     }
 
 

@@ -31,12 +31,14 @@ public class TowerChecker : MonoBehaviour
 
     public TMP_InputField scenario1ReflectionInput; // Input field for scenario 1 reflection
     public TMP_InputField scenario2ReflectionInput; // Input field for scenario 2 reflection
-
+    public TextMeshProUGUI stonesCountText1;
+    public TextMeshProUGUI stonesCountText2;
     private bool countdownActive = false;
     private bool gameOver = false;  // New variable to track game over state
 
     private void Start()
     {
+        stonesCollidingWithStones = 0;
         // Defaulting to false at the very start to clear the screen elements
         S1stickyNote.SetActive(false);
         S2stickyNote.SetActive(false);
@@ -64,6 +66,8 @@ public class TowerChecker : MonoBehaviour
     {
         if (!gameOver) // Only check tower completion if the game is not over
         {
+            stonesCountText1.text = "" + stonesCollidingWithStones + "/5";
+            stonesCountText2.text = "" + stonesCollidingWithStones + "/5";
             CheckTowerCompletion();
         }
     }
@@ -71,16 +75,19 @@ public class TowerChecker : MonoBehaviour
     void CheckTowerCompletion()
     {
         GameObject[] stones = GameObject.FindGameObjectsWithTag(stoneTag);
-        Debug.Log("Found " + stones.Length + " stones with tag '" + stoneTag + "' in the scene.");
+       
 
         stonesCollidingWithStones = 0;
         bool allNonKinematic = AllStonesNonKinematicAndCheckCollisions(stones);
+
+     
+
 
         if (allNonKinematic && stonesCollidingWithStones == requiredStoneCount)
         {
             if (!countdownActive)
             {
-                Debug.Log("Tower is complete! StonesCollidingWithStones: " + stonesCollidingWithStones);
+                
                 towerIsComplete = true;
                 StartCoroutine(WaitForStability());
             }
@@ -88,7 +95,7 @@ public class TowerChecker : MonoBehaviour
         else
         {
             towerIsComplete = false;
-            Debug.Log("Tower is not complete. StonesCollidingWithStones: " + stonesCollidingWithStones);
+            
 
             if (countdownActive)
             {
@@ -106,31 +113,31 @@ public class TowerChecker : MonoBehaviour
             Rigidbody rb = stone.GetComponent<Rigidbody>();
             if (rb == null)
             {
-                Debug.LogWarning("No Rigidbody found on stone: " + stone.name);
+                
                 return false;
             }
 
             if (rb.isKinematic)
             {
-                Debug.Log("Stone " + stone.name + " is kinematic.");
+                
                 return false;
             }
 
             StoneCollisionDetector tracker = stone.GetComponent<StoneCollisionDetector>();
             if (tracker == null)
             {
-                Debug.LogWarning("No StoneCollisionDetector component found on stone: " + stone.name);
+                
                 continue;
             }
 
             if (tracker.IsCollidingWithStone)
             {
                 stonesCollidingWithStones++;
-                Debug.Log(stone.name + " is colliding with another stone.");
+               
             }
         }
 
-        Debug.Log("All stones are non-kinematic.");
+       
         return true;
     }
 
@@ -148,10 +155,7 @@ public class TowerChecker : MonoBehaviour
                 countdownAudio.clip = countdownClip;
                 countdownAudio.Play();
             }
-            else
-            {
-                Debug.LogWarning("Countdown AudioSource or AudioClip is not assigned.");
-            }
+       
 
             while (countdownTime > 0)
             {
@@ -186,10 +190,7 @@ public class TowerChecker : MonoBehaviour
                 GameOver();
             }
         }
-        else
-        {
-            Debug.LogError("CountdownText is not assigned.");
-        }
+      
 
         countdownActive = false;
     }
@@ -234,10 +235,7 @@ public class TowerChecker : MonoBehaviour
                 scenario2DisplayEndOfLevel.sprite = screenshotSprite;
             }
         }
-        else
-        {
-            Debug.LogError("Screenshot is null. Unable to create sprite.");
-        }
+      
     }
 
     // New function to save player's reflections for both scenarios
@@ -256,10 +254,7 @@ public class TowerChecker : MonoBehaviour
                 ScreenshotSaving.Instance.SaveReflection(scenario2Reflection, false);
             }
         }
-        else
-        {
-            Debug.LogError("Reflection InputFields are not assigned.");
-        }
+      
     }
 
 
@@ -289,4 +284,9 @@ public class TowerChecker : MonoBehaviour
             CanvasObj.SetActive(false);
         }
     }
+
+
+
+
+
 }
