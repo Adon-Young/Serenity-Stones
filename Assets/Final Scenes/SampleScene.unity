@@ -8159,10 +8159,10 @@ MonoBehaviour:
   content3: {fileID: 1664086100}
   content4: {fileID: 2070894872}
   stoneMaterials:
-  - {fileID: 2100000, guid: f41101faebbbd774d994fd07c4cc4ddf, type: 2}
+  - {fileID: 2100000, guid: 679b48a728bf6a747a0ca221c5145c66, type: 2}
   - {fileID: 2100000, guid: 33241bb41f7c1be48bf3d630b1b9e772, type: 2}
   - {fileID: 2100000, guid: 5aedac15eb813514894940ca015ea31c, type: 2}
-  - {fileID: 2100000, guid: 679b48a728bf6a747a0ca221c5145c66, type: 2}
+  - {fileID: 2100000, guid: f41101faebbbd774d994fd07c4cc4ddf, type: 2}
   SpeechBubbleThemes:
   - {fileID: 142556483}
   - {fileID: 142556482}
