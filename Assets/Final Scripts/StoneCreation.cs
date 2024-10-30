@@ -27,7 +27,28 @@ public class StoneCreation : MonoBehaviour
     private float stoneMass = 10;
     public Color initialColor = new Color(0.3396226f, 0.3396226f, 0.3396226f);
 
-   
+
+
+
+
+
+
+
+    //---------------------------------------------
+    //---------------------------------------------
+    //Testing references...
+    public DataCollection dataCollectionScript;
+    public TowerChecker towerCheckerForTesting;
+    //---------------------------------------------
+    //---------------------------------------------
+
+
+
+
+
+
+
+
 
     public GameObject[] StartingPositions;
 
@@ -150,8 +171,8 @@ public class StoneCreation : MonoBehaviour
     void Start()
     {
 
-            // Assigning the game camera-already in scene
-            mainGameCamera = GameObject.Find("Main Camera");
+        // Assigning the game camera-already in scene
+        mainGameCamera = GameObject.Find("Main Camera");
         CreateStones(numberOfStonesInList);
     }
 
@@ -166,9 +187,10 @@ public class StoneCreation : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && Movement.CanReset == true)
+        if (Input.GetKeyDown(KeyCode.R) && Movement.CanReset == true && towerCheckerForTesting.gameOver == false)
         {
             ResetAllStones();
+            dataCollectionScript.ButtonResetCounter();//call the function fore testing resets-------------------------------------------------------------------------------
         }
 
 
@@ -186,7 +208,7 @@ public class StoneCreation : MonoBehaviour
     {
         // Define the desired offset in front of the stone
         Vector3 offset = new Vector3(0, 0, 1.5f); // Adjust as needed to control how far in front of the stone the canvas should be
-        
+
         // Calculate the canvas position based on the stone's position and the camera's position
         Vector3 directionToCamera = (mainGameCamera.transform.position - stoneTransform.position).normalized;
         Vector3 newCanvasPosition = stoneTransform.position + directionToCamera * offset.z;
@@ -218,7 +240,7 @@ public class StoneCreation : MonoBehaviour
             float randomScaleAllAxis = Random.Range(minimumScale, maximumScale);
             stone.transform.localScale = new Vector3(randomScaleAllAxis, randomScaleAllAxis, randomScaleAllAxis);
             stone.GetComponent<Rigidbody>().mass = stoneMass;
-           
+
             foreach (Transform child in stone.transform)
             {
                 child.localScale = new Vector3(
@@ -231,7 +253,7 @@ public class StoneCreation : MonoBehaviour
             // Add the stone to the list
             stones.Add(stone);
 
-          
+
 
             // Find the Canvas component within the instantiated stone
             Transform canvasTransform = FindCanvasTransform(stone);
@@ -241,7 +263,7 @@ public class StoneCreation : MonoBehaviour
                 // Ensure the canvas faces the camera
                 FaceTheCamera(canvasTransform);
             }
-        
+
 
             // Optionally: Find the TMP_InputField component and set the text
             CreateStoneText(stone);
@@ -254,7 +276,7 @@ public class StoneCreation : MonoBehaviour
         {
             meshRenderer.material.color = color;
         }
-     
+
     }
     public void ResetStone(GameObject stone)
     {
@@ -264,7 +286,7 @@ public class StoneCreation : MonoBehaviour
         int index = stones.IndexOf(stone);
         if (index < 0 || index >= StartingPositions.Length)
         {
-            
+
             return;
         }
 
@@ -272,7 +294,7 @@ public class StoneCreation : MonoBehaviour
         GameObject startPositionObject = StartingPositions[index];
         if (startPositionObject == null)
         {
-            
+
             return;
         }
 
@@ -385,7 +407,7 @@ public class StoneCreation : MonoBehaviour
                 placeholderText.text = randomWord;
 
             }
-         
+
 
             // Find the canvas that is a child of the stone and face the camera
             Transform canvasTransform = FindCanvasTransform(stone);
@@ -393,9 +415,9 @@ public class StoneCreation : MonoBehaviour
             {
                 FaceTheCamera(canvasTransform);
             }
-         
+
         }
-       
+
     }
 
 
@@ -403,7 +425,7 @@ public class StoneCreation : MonoBehaviour
     string GetRandomWord()
     {
 
-        if(LevelController.scenario1chosen)
+        if (LevelController.scenario1chosen)
         {
             int randomIndex = Random.Range(0, S1words.Count);
             return S1words[randomIndex];
@@ -430,9 +452,9 @@ public class StoneCreation : MonoBehaviour
             {
                 return inputField;
             }
-         
+
         }
-      
+
 
         return null;
     }
@@ -453,4 +475,3 @@ public class StoneCreation : MonoBehaviour
 
 
 }
-

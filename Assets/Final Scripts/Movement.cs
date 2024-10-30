@@ -1,19 +1,18 @@
 using UnityEngine;
 using TMPro;
 
-
 public class Movement : MonoBehaviour
 {
     private Camera mainCamera;
-    private GameObject selectedStone;
+    public GameObject selectedStone;
     private TMP_InputField activeInputField;
-    private bool isDragging = false;
+    public bool isDragging = false;
     public static bool CanReset;
 
     private enum StoneState
     {
-        Moveability,
-        Text
+        Moveability, // State where the stone can be moved and rotated
+        Text         // State where the stone is in text editing mode
     }
 
     private StoneState currentState = StoneState.Moveability;
@@ -24,61 +23,57 @@ public class Movement : MonoBehaviour
 
     public float keyRotationAmount = 0.5f; // Rotation amount
 
- 
-
-
     void Start()
     {
-        CanReset = true;
-        mainCamera = Camera.main;
+        CanReset = true; // Allow resetting initially
+        mainCamera = Camera.main; // Get the main camera
         if (mainCamera == null)
         {
-            Debug.LogError("Main camera not found!");
+            Debug.LogError("Main camera not found!"); // Log error if main camera is not found
         }
     }
 
     void Update()
     {
-        if(LevelController.freezeGamePlay == false)//if the game sint frozen then you can pick up rotate and place stones/ edit their text...
+        if (LevelController.freezeGamePlay == false) // Check if gameplay is not frozen
         {
-            HandleInput();
+            HandleInput(); // Handle player input
         }
-       
     }
 
     void HandleInput()
     {
-        if (Input.GetMouseButtonDown(0)) // Left click
+        if (Input.GetMouseButtonDown(0)) // Check for left mouse click
         {
-            if (isDragging && currentState == StoneState.Moveability) // Only drop if in Moveability state
+            if (isDragging && currentState == StoneState.Moveability) // If dragging and in Moveability state
             {
-                ReleaseStone();
+                ReleaseStone(); // Release the stone
             }
             else if (!isDragging)
             {
-                TrySelectStone();
+                TrySelectStone(); // Try selecting a stone
             }
         }
 
-        if (isDragging)
+        if (isDragging) // If dragging a stone
         {
             switch (currentState)
             {
                 case StoneState.Moveability:
-                    MoveStone();
-                    HandleRotation();
-                    if (Input.GetMouseButtonDown(1)) // Right click
+                    MoveStone(); // Move the stone
+                    HandleRotation(); // Handle stone rotation
+                    if (Input.GetMouseButtonDown(1)) // Check for right mouse click
                     {
-                        CanReset = false;
-                        ToggleInputField();
+                        CanReset = false; // Disable reset
+                        ToggleInputField(); // Toggle input field
                     }
                     break;
 
                 case StoneState.Text:
-                    if (Input.GetMouseButtonDown(1)) // Right click
+                    if (Input.GetMouseButtonDown(1)) // Check for right mouse click
                     {
-                        CanReset = true;
-                        SwitchToMoveabilityState();
+                        CanReset = true; // Enable reset
+                        SwitchToMoveabilityState(); // Switch to Moveability state
                     }
                     break;
             }
@@ -87,108 +82,102 @@ public class Movement : MonoBehaviour
 
     void HandleRotation()
     {
-        if (Input.GetKey(KeyCode.W)) RotateStone(Vector3.right, keyRotationAmount);
-        if (Input.GetKey(KeyCode.S)) RotateStone(Vector3.right, -keyRotationAmount);
-        if (Input.GetKey(KeyCode.A)) RotateStone(Vector3.up, keyRotationAmount);
-        if (Input.GetKey(KeyCode.D)) RotateStone(Vector3.up, -keyRotationAmount);
+        if (Input.GetKey(KeyCode.W)) RotateStone(Vector3.right, keyRotationAmount); // Rotate up
+        if (Input.GetKey(KeyCode.S)) RotateStone(Vector3.right, -keyRotationAmount); // Rotate down
+        if (Input.GetKey(KeyCode.A)) RotateStone(Vector3.up, keyRotationAmount); // Rotate left
+        if (Input.GetKey(KeyCode.D)) RotateStone(Vector3.up, -keyRotationAmount); // Rotate right
     }
 
     void TrySelectStone()
     {
-        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition); // Create a ray from the camera to the mouse position
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit)) // Cast the ray
         {
-            Rigidbody rb = hit.collider.GetComponent<Rigidbody>();
+            Rigidbody rb = hit.collider.GetComponent<Rigidbody>(); // Get the Rigidbody component of the hit object
             if (rb != null)
             {
-                selectedStone = rb.gameObject;
-                isDragging = true;
+                selectedStone = rb.gameObject; // Set the selected stone
+                isDragging = true; // Start dragging
 
-                MeshRenderer renderer = selectedStone.GetComponent<MeshRenderer>();
+                MeshRenderer renderer = selectedStone.GetComponent<MeshRenderer>(); // Get the MeshRenderer component
                 if (renderer != null)
                 {
-                    defaultColor = renderer.material.color;
+                    defaultColor = renderer.material.color; // Store the default color
                     renderer.material.color = pickedUpColor; // Change color to red
-                    rb.isKinematic = true;
+                    rb.isKinematic = true; // Make the Rigidbody kinematic
 
-                    //resetting the position to 0 on the z axis when picked up
+                    // Resetting the position to 0 on the z-axis when picked up
                     Vector3 position = selectedStone.transform.position;
                     position.z = 0f;
                     selectedStone.transform.position = position;
-
                 }
-              
             }
-           
         }
-      
     }
 
     void ReleaseStone()
     {
         if (selectedStone != null)
         {
-            MeshRenderer renderer = selectedStone.GetComponent<MeshRenderer>();
+            MeshRenderer renderer = selectedStone.GetComponent<MeshRenderer>(); // Get the MeshRenderer component
             if (renderer != null)
             {
                 renderer.material.color = defaultColor; // Revert color to default
-                Rigidbody rb = selectedStone.GetComponent<Rigidbody>();
+                Rigidbody rb = selectedStone.GetComponent<Rigidbody>(); // Get the Rigidbody component
                 if (rb != null)
                 {
-                    rb.isKinematic = false;
+                    rb.isKinematic = false; // Make the Rigidbody non-kinematic
                 }
             }
-          
         }
 
-        selectedStone = null;
-        isDragging = false;
-        currentState = StoneState.Moveability;
-        activeInputField = null;
+        selectedStone = null; // Clear selected stone
+        isDragging = false; // Stop dragging
+        currentState = StoneState.Moveability; // Reset state to Moveability
+        activeInputField = null; // Clear active input field
     }
 
     void MoveStone()
     {
         if (selectedStone == null) return;
 
-        Vector3 mousePosition = Input.mousePosition;
-        mousePosition.z = mainCamera.WorldToScreenPoint(selectedStone.transform.position).z;
+        Vector3 mousePosition = Input.mousePosition; // Get mouse position
+        mousePosition.z = mainCamera.WorldToScreenPoint(selectedStone.transform.position).z; // Set z distance
 
-        Vector3 worldPosition = mainCamera.ScreenToWorldPoint(mousePosition);
-        selectedStone.transform.position = new Vector3(worldPosition.x, worldPosition.y, selectedStone.transform.position.z);
+        Vector3 worldPosition = mainCamera.ScreenToWorldPoint(mousePosition); // Convert mouse position to world position
+        selectedStone.transform.position = new Vector3(worldPosition.x, worldPosition.y, selectedStone.transform.position.z); // Move stone
     }
 
     void RotateStone(Vector3 axis, float amount)
     {
         if (selectedStone == null) return;
 
-        selectedStone.transform.Rotate(axis, amount, Space.Self);
+        selectedStone.transform.Rotate(axis, amount, Space.Self); // Rotate stone around specified axis
     }
 
     void ToggleInputField()
     {
         if (selectedStone != null)
         {
-            TMP_InputField inputField = FindObjectOfType<StoneCreation>().GetInputFieldFromStone(selectedStone);
+            TMP_InputField inputField = FindObjectOfType<StoneCreation>().GetInputFieldFromStone(selectedStone); // Find the input field from StoneCreation
             if (inputField != null)
             {
                 if (currentState == StoneState.Moveability)
                 {
-                    SwitchToTextState(inputField);
+                    SwitchToTextState(inputField); // Switch to Text state
                 }
             }
-         
         }
     }
 
     void SwitchToTextState(TMP_InputField inputField)
     {
-        inputField.ActivateInputField();
-        inputField.Select();
-        currentState = StoneState.Text;
-        MeshRenderer renderer = selectedStone.GetComponent<MeshRenderer>();
+        inputField.ActivateInputField(); // Activate the input field
+        inputField.Select(); // Select the input field
+        currentState = StoneState.Text; // Change state to Text
+        MeshRenderer renderer = selectedStone.GetComponent<MeshRenderer>(); // Get the MeshRenderer component
         if (renderer != null)
         {
             renderer.material.color = editableColor; // Set color to green
@@ -199,12 +188,12 @@ public class Movement : MonoBehaviour
     {
         if (selectedStone != null)
         {
-            TMP_InputField inputField = FindObjectOfType<StoneCreation>().GetInputFieldFromStone(selectedStone);
+            TMP_InputField inputField = FindObjectOfType<StoneCreation>().GetInputFieldFromStone(selectedStone); // Find the input field from StoneCreation
             if (inputField != null)
             {
-                inputField.DeactivateInputField();
-                currentState = StoneState.Moveability;
-                MeshRenderer renderer = selectedStone.GetComponent<MeshRenderer>();
+                inputField.DeactivateInputField(); // Deactivate the input field
+                currentState = StoneState.Moveability; // Change state to Moveability
+                MeshRenderer renderer = selectedStone.GetComponent<MeshRenderer>(); // Get the MeshRenderer component
                 if (renderer != null)
                 {
                     renderer.material.color = pickedUpColor; // Revert color to red

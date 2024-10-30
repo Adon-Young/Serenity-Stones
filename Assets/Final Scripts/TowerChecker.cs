@@ -6,46 +6,55 @@ using UnityEngine.UI;
 
 public class TowerChecker : MonoBehaviour
 {
-    public GameObject gameObjectComplete;
-    public string stoneTag = "Stone";
-    public int requiredStoneCount = 5;
-    private bool towerIsComplete;
-    private int stonesCollidingWithStones = 0;
-    public GameObject CanvasObj;
-    public GameObject gameOverCanvas;
+    public GameObject gameObjectComplete; // Object to activate when the tower is complete
+    public string stoneTag = "Stone"; // Tag used to identify stone objects
+    public int requiredStoneCount = 5; // Number of stones required to complete the tower
+    private bool towerIsComplete; // Tracks whether the tower is complete
+    private int stonesCollidingWithStones = 0; // Number of stones currently colliding with other stones
+    public GameObject CanvasObj; // Main canvas object
+    public GameObject gameOverCanvas; // Canvas displayed when the game is over
 
-    public Text countdownText;
-    public AudioSource countdownAudio;
-    public AudioClip countdownClip;
+    public Text countdownText; // Text component for displaying countdown
+    public AudioSource countdownAudio; // Audio source for countdown sound
+    public AudioClip countdownClip; // Audio clip for countdown sound
 
-    public Camera screenshotCamera;
-    private bool screenshotTaken = false;
+    public Camera screenshotCamera; // Camera used to take screenshots
+    private bool screenshotTaken = false; // Tracks whether a screenshot has been taken
 
-    public Image scenario1DisplayEndOfLevel;
-    public Image scenario2DisplayEndOfLevel;
-    public GameObject S1stickyNote;
-    public GameObject S2stickyNote;
+    public Image scenario1DisplayEndOfLevel; // Image to display for scenario 1 at the end of the level
+    public Image scenario2DisplayEndOfLevel; // Image to display for scenario 2 at the end of the level
+    public GameObject S1stickyNote; // Sticky note for scenario 1
+    public GameObject S2stickyNote; // Sticky note for scenario 2
 
-    public GameObject S1CanvasPage;
-    public GameObject S2CanvasPage;
+    public GameObject S1CanvasPage; // Canvas page for scenario 1
+    public GameObject S2CanvasPage; // Canvas page for scenario 2
 
     public TMP_InputField scenario1ReflectionInput; // Input field for scenario 1 reflection
     public TMP_InputField scenario2ReflectionInput; // Input field for scenario 2 reflection
-    public TextMeshProUGUI stonesCountText1;
-    public TextMeshProUGUI stonesCountText2;
-    private bool countdownActive = false;
-    private bool gameOver = false;  // New variable to track game over state
+    public TextMeshProUGUI stonesCountText1; // Text for displaying stone count in scenario 1
+    public TextMeshProUGUI stonesCountText2; // Text for displaying stone count in scenario 2
+    private bool countdownActive = false; // Tracks whether the countdown is active
+
+    public bool gameOver = false; // Tracks whether the game is over
+
+    //-----------------------------------------------TESTING
+
+     public DataCollection dataCollectionReference;
+
+    //-----------------------------------------------TESTING
+
+
 
     private void Start()
     {
         stonesCollidingWithStones = 0;
-        // Defaulting to false at the very start to clear the screen elements
+        // Initialize UI elements
         S1stickyNote.SetActive(false);
         S2stickyNote.SetActive(false);
         scenario1DisplayEndOfLevel.gameObject.SetActive(false);
         scenario2DisplayEndOfLevel.gameObject.SetActive(false);
 
-        // Activate the screen for the chosen scenario after clearing the screen of previous active elements
+        // Activate UI elements based on selected scenario
         if (LevelController.scenario1chosen)
         {
             scenario1DisplayEndOfLevel.gameObject.SetActive(true);
@@ -75,19 +84,14 @@ public class TowerChecker : MonoBehaviour
     void CheckTowerCompletion()
     {
         GameObject[] stones = GameObject.FindGameObjectsWithTag(stoneTag);
-       
 
         stonesCollidingWithStones = 0;
         bool allNonKinematic = AllStonesNonKinematicAndCheckCollisions(stones);
-
-     
-
 
         if (allNonKinematic && stonesCollidingWithStones == requiredStoneCount)
         {
             if (!countdownActive)
             {
-                
                 towerIsComplete = true;
                 StartCoroutine(WaitForStability());
             }
@@ -95,7 +99,6 @@ public class TowerChecker : MonoBehaviour
         else
         {
             towerIsComplete = false;
-            
 
             if (countdownActive)
             {
@@ -111,33 +114,18 @@ public class TowerChecker : MonoBehaviour
         foreach (GameObject stone in stones)
         {
             Rigidbody rb = stone.GetComponent<Rigidbody>();
-            if (rb == null)
+            if (rb == null || rb.isKinematic)
             {
-                
-                return false;
-            }
-
-            if (rb.isKinematic)
-            {
-                
-                return false;
+                return false; // Return false if any stone is missing a Rigidbody or is kinematic
             }
 
             StoneCollisionDetector tracker = stone.GetComponent<StoneCollisionDetector>();
-            if (tracker == null)
-            {
-                
-                continue;
-            }
-
-            if (tracker.IsCollidingWithStone)
+            if (tracker != null && tracker.IsCollidingWithStone)
             {
                 stonesCollidingWithStones++;
-               
             }
         }
 
-       
         return true;
     }
 
@@ -155,7 +143,6 @@ public class TowerChecker : MonoBehaviour
                 countdownAudio.clip = countdownClip;
                 countdownAudio.Play();
             }
-       
 
             while (countdownTime > 0)
             {
@@ -168,7 +155,7 @@ public class TowerChecker : MonoBehaviour
                     countdownText.gameObject.SetActive(false);
                     countdownActive = false;
 
-                    // Stop the countdown audio
+                    // Stop the countdown audio if it's playing
                     if (countdownAudio != null && countdownAudio.isPlaying)
                     {
                         countdownAudio.Stop();
@@ -187,10 +174,9 @@ public class TowerChecker : MonoBehaviour
                 TakeTheScreenshot();
 
                 DisplayScreenshot(); // Display the screenshot after it's taken
-                GameOver();
+                GameOver(); // End the game
             }
         }
-      
 
         countdownActive = false;
     }
@@ -235,10 +221,9 @@ public class TowerChecker : MonoBehaviour
                 scenario2DisplayEndOfLevel.sprite = screenshotSprite;
             }
         }
-      
     }
 
-    // New function to save player's reflections for both scenarios
+    // Function to save player's reflections for both scenarios
     public void SavePlayerReflections()
     {
         if (scenario1ReflectionInput != null && scenario2ReflectionInput != null)
@@ -254,39 +239,37 @@ public class TowerChecker : MonoBehaviour
                 ScreenshotSaving.Instance.SaveReflection(scenario2Reflection, false);
             }
         }
-      
     }
 
-
-
-
-    // New function to handle game over state
+    // Function to handle game over state
     public void GameOver()
     {
         gameOver = true; // Set game over state
         StopAllCoroutines(); // Stop all coroutines
         countdownText.gameObject.SetActive(false); // Hide the countdown text
-        LevelController.freezeGamePlay = true;
+        LevelController.freezeGamePlay = true; // Freeze gameplay
 
-        // Used to turn off the game's UI depending on what scenario was selected...
+        // Hide the UI based on selected scenario
         if (LevelController.scenario1chosen)
         {
             S1CanvasPage.SetActive(false);
-            countdownText.gameObject.SetActive(false);
-            countdownActive = false;
             CanvasObj.SetActive(false);
         }
         else
         {
             S2CanvasPage.SetActive(false);
-            countdownText.gameObject.SetActive(false);
-            countdownActive = false;
             CanvasObj.SetActive(false);
         }
+
+
+
+        //-----------------------------------------------TESTING
+
+        dataCollectionReference.StopTimer();
+
+        //-----------------------------------------------TESTING
+
+
+
     }
-
-
-
-
-
 }

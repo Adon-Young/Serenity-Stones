@@ -3,24 +3,28 @@ using UnityEngine.SceneManagement;
 
 public class ScenarioSelection : MonoBehaviour
 {
-
     private void Start()
     {
-        // You no longer need to find or use an instance of LevelController here.
-        LevelController.scenario1chosen = true; // Set default scenario if needed
+        // Initialize the default scenario setting if needed
+        // Set default scenario to true, meaning Scenario 1 is chosen initially
+        LevelController.scenario1chosen = true;
     }
 
     public void OnScenario1Selected()
     {
-        // Access the static member directly through the class name
+        // When Scenario 1 is selected, set the static scenario1chosen flag to true
         LevelController.scenario1chosen = true;
-        SceneManager.LoadScene("SampleScene"); // Load the game scene
+
+        // Load the game scene; replace "SampleScene" with your actual game scene name
+        SceneManager.LoadScene("SampleScene");
     }
 
     public void OnScenario2Selected()
     {
-        // Access the static member directly through the class name
+        // When Scenario 2 is selected, set the static scenario1chosen flag to false
         LevelController.scenario1chosen = false;
-        SceneManager.LoadScene("SampleScene"); // Load the game scene
+
+        // Load the game scene; replace "SampleScene" with your actual game scene name
+        SceneManager.LoadScene("SampleScene");
     }
 }

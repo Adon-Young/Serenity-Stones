@@ -9,10 +9,11 @@ public class RandomUIDisplay : MonoBehaviour
     public float minWaitTime = 15f;       // Minimum wait time before displaying the next UI element
     public float maxWaitTime = 25f;       // Maximum wait time before displaying the next UI element
 
-    // Lists for each scenario
+    // Lists for UI elements specific to each scenario
     public List<GameObject> Scenario1UI;
     public List<GameObject> Scenario2UI;
 
+    // UI elements and holders
     public GameObject backgroundBubble;
     public GameObject S1UIholder;
     public GameObject S2UIholder;
@@ -25,29 +26,26 @@ public class RandomUIDisplay : MonoBehaviour
 
     void Start()
     {
+        // Initialize UI elements and start the coroutine for displaying UI elements
         InitializeUI();
         StartCoroutine(WaitAtStart());
-
-
     }
 
-
+    // Coroutine to wait for 10 seconds before starting the random UI display
     IEnumerator WaitAtStart()
     {
         yield return new WaitForSeconds(10);
         StartCoroutine(DisplayRandomUI());
     }
 
-
     void InitializeUI()
     {
-
+        // Initially hide background bubble and both UI holders
         backgroundBubble.SetActive(false);
-        // Set both UI holders to inactive at the start
         S1UIholder.SetActive(false);
         S2UIholder.SetActive(false);
 
-        // Show quiet images initially based on the scenario
+        // Show quiet images based on the selected scenario
         if (LevelController.scenario1chosen)
         {
             MadhurQuiet.SetActive(true);
@@ -64,6 +62,7 @@ public class RandomUIDisplay : MonoBehaviour
         }
     }
 
+    // Coroutine to display random UI elements based on the scenario
     IEnumerator DisplayRandomUI()
     {
         while (true)
@@ -83,20 +82,22 @@ public class RandomUIDisplay : MonoBehaviour
 
     void HandleScenario1()
     {
-        // Activate holder and set UI elements for Scenario 1
+        // Activate UI holder for Scenario 1 and deactivate Scenario 2 holder
         S1UIholder.SetActive(true);
         S2UIholder.SetActive(false);
     }
 
     void HandleScenario2()
     {
-        // Activate holder and set UI elements for Scenario 2
+        // Activate UI holder for Scenario 2 and deactivate Scenario 1 holder
         S1UIholder.SetActive(false);
         S2UIholder.SetActive(true);
     }
 
+    // Coroutine to display each UI element in the list with a randomized order
     IEnumerator DisplayUIElements(List<GameObject> uiElements, GameObject speakingImage, GameObject quietImage)
     {
+        // Shuffle the list to randomize the display order
         ShuffleList(uiElements);
 
         foreach (GameObject uiElement in uiElements)
@@ -106,25 +107,23 @@ public class RandomUIDisplay : MonoBehaviour
             quietImage.SetActive(false);
             backgroundBubble.SetActive(true);
 
-            // Display the UI element (speech bubble)
+            // Display the UI element
             uiElement.SetActive(true);
             yield return new WaitForSeconds(displayTime);
 
-            // Hide the UI element (speech bubble)
+            // Hide the UI element and switch to the quiet image
             uiElement.SetActive(false);
-
-            // Hide the speaking image and show the quiet image
             speakingImage.SetActive(false);
             quietImage.SetActive(true);
             backgroundBubble.SetActive(false);
 
-            // Wait for a random time between minWaitTime and maxWaitTime
+            // Wait for a random time before displaying the next UI element
             float waitTime = Random.Range(minWaitTime, maxWaitTime);
             yield return new WaitForSeconds(waitTime);
         }
     }
 
-    // Function to shuffle a list using Fisher-Yates algorithm
+    // Function to shuffle a list using the Fisher-Yates algorithm
     private void ShuffleList(List<GameObject> list)
     {
         for (int i = list.Count - 1; i > 0; i--)
