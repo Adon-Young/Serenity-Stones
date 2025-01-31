@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9525,13 +9524,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 731102288}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.919, y: 1.919, z: 1.919}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 476691569}
-  m_Father: {fileID: 974573350}
+  m_Father: {fileID: 747009427}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9898,6 +9897,7 @@ RectTransform:
   m_Children:
   - {fileID: 825377795}
   - {fileID: 1014424764}
+  - {fileID: 731102289}
   m_Father: {fileID: 1005801558}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -12539,7 +12539,6 @@ RectTransform:
   - {fileID: 519938450}
   - {fileID: 1988610328}
   - {fileID: 1593652239}
-  - {fileID: 731102289}
   m_Father: {fileID: 1005801558}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -25378,7 +25377,7 @@ MonoBehaviour:
   buttonResetText: {fileID: 365776491}
   timerText: {fileID: 951985515}
   toggleButton: {fileID: 1349242667}
-  startTimerButton: {fileID: 1084351796}
+  startTimerButton: {fileID: 1367420280}
   dataHolder: {fileID: 430220071}
   nextGameButton: {fileID: 752060765}
   debugElapsedTime: 0
